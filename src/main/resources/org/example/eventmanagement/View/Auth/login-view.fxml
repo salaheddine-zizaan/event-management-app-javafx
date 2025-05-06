@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="org.example.eventmanagement.Controller.Auth.LoginController"
+>
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#14213d" height="408.0" stroke="#14213d" strokeType="INSIDE" width="601.0" />
+      <Label layoutX="259.0" layoutY="84.0" text="Login" textFill="WHITE">
+         <font>
+            <Font name="Poppins Medium" size="31.0" />
+         </font>
+      </Label>
+      <Label layoutX="226.0" layoutY="169.0" text="Username" textFill="WHITE" />
+      <TextField fx:id="usernameField" layoutX="226.0" layoutY="192.0" style="-fx-border-radius: 0px;" />
+      <Label layoutX="226.0" layoutY="228.0" text="Password" textFill="WHITE" />
+      <PasswordField fx:id="passwordField" layoutX="226.0" layoutY="250.0" />
+      <Button layoutX="226.0" layoutY="292.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="149.0"
+              onAction="#handleLogin" text="submit" textFill="#14213d" />
+   </children>
+</AnchorPane>
