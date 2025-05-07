@@ -1,0 +1,47 @@
+/* Background rectangle */
+.background-rect {
+    -fx-fill: #14213d;
+    -fx-stroke: #14213d;
+}
+
+/* Login container */
+.login-box {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 10;
+}
+
+/* Title */
+.login-title {
+    -fx-text-fill: #14213d;
+    -fx-font-size: 24px;
+    -fx-text-fill: #14213d;
+    -fx-font-weight: Bold Italic;
+}
+
+/* Labels */
+.form-label {
+    -fx-text-fill: #14213d;
+    -fx-font-size: 12px;
+}
+
+/* Inputs */
+.form-input {
+    -fx-background-radius: 5;
+    -fx-border-color: #ccc;
+    -fx-border-radius: 5;
+    -fx-padding: 5 10;
+}
+
+/* Submit button */
+.submit-button {
+    -fx-background-color: #fca311;
+    -fx-text-fill: #14213d;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5;
+}
+
+/* Error message */
+.status-text {
+    -fx-fill: red;
+    -fx-font-size: 12px;
+}
