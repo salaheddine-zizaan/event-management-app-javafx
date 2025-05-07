@@ -4,6 +4,8 @@ module org.example.eventmanagement {
 
     requires com.dlsc.formsfx;
     requires java.desktop;
+    requires java.sql;
+    requires jbcrypt;
 
     opens org.example.eventmanagement to javafx.fxml;
     exports org.example.eventmanagement;
