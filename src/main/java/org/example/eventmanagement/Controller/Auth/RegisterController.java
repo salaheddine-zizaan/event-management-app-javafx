@@ -1,7 +1,7 @@
 package org.example.eventmanagement.Controller.Auth;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import org.example.eventmanagement.utils.DatabaseConnection;
+import org.example.eventmanagement.Controller.DatabaseConnection;
 import org.mindrot.jbcrypt.BCrypt;
 
 import java.sql.*;
@@ -34,14 +34,14 @@ public class RegisterController {
         String password = passwordField.getText();
         String role = roleComboBox.getValue();
 
+        System.out.println(firstname+" "+lastname+" "+email+" "+phone+" "+password+" "+username+" "+role);
+
         if (firstname.isEmpty() || email.isEmpty() || password.isEmpty() || role == null) {
             statusLabel.setText("All fields are required.");
             return;
         }
 
         String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
-
-
 
         try (Connection conn = DatabaseConnection.getConnection()) {
             // Insert into person
