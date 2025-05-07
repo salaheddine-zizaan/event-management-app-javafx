@@ -18,6 +18,7 @@ import java.sql.SQLException;
 
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import org.example.eventmanagement.Controller.DatabaseConnection;
 import org.mindrot.jbcrypt.BCrypt;
 
 
@@ -32,11 +33,7 @@ public class LoginController {
         String email = emailField.getText();
         String password = passwordField.getText();
 
-        String DB_URL = "jdbc:postgresql://localhost:5432/event_management";
-        String DB_USER = "postgres";
-        String DB_PASSWORD = "password";
-
-        try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD)) {
+        try (Connection conn = DatabaseConnection.getConnection()) {
             String query = "SELECT * FROM person WHERE email = ?";
             PreparedStatement stmt = conn.prepareStatement(query);
             stmt.setString(1, email);
