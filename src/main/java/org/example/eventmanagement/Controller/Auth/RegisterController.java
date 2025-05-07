@@ -1,6 +1,7 @@
 package org.example.eventmanagement.Controller.Auth;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import org.example.eventmanagement.Controller.DatabaseConnection;
 import org.mindrot.jbcrypt.BCrypt;
 
 import java.sql.*;
@@ -42,11 +43,7 @@ public class RegisterController {
 
         String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
 
-        String DB_URL = "jdbc:postgresql://localhost:5432/event_management";
-        String DB_USER = "postgres";
-        String DB_PASSWORD = "password";
-
-        try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD)) {
+        try (Connection conn = DatabaseConnection.getConnection()) {
             // Insert into person
             String insertPerson = "INSERT INTO person (firstname, lastname, email, phone, password, username, role) VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING id_person";
             PreparedStatement ps = conn.prepareStatement(insertPerson);
