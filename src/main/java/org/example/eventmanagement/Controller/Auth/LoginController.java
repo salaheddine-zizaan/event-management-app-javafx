@@ -9,6 +9,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.example.eventmanagement.Controller.AdminController;
+import org.example.eventmanagement.Controller.OrganizerController;
+import org.example.eventmanagement.Controller.UserController;
 import org.example.eventmanagement.DAO.AdminDAO;
 import org.example.eventmanagement.DAO.OrganizerDAO;
 import org.example.eventmanagement.DAO.PersonDAO;
@@ -60,12 +62,12 @@ public class LoginController {
                 case "organizer" -> {
                     Organizer organizer = OrganizerDAO.getByIdPerson(person.getIdPerson());
                     Session.getInstance().setLoggedInOrganizer(organizer);
-                    SceneManager.switchScene("/org/example/eventmanagement/View/organizer/organizer-profile-view.fxml", new AdminController());
+                    SceneManager.switchScene("/org/example/eventmanagement/View/organizer/organizer-profile-view.fxml", new OrganizerController());
                 }
                 case "user" -> {
                     User user = UserDAO.getByIdPerson(person.getIdPerson());
                     Session.getInstance().setLoggedInUser(user);
-                    SceneManager.switchScene("/org/example/eventmanagement/View/user/user-profile-view.fxml", new AdminController());
+                    SceneManager.switchScene("/org/example/eventmanagement/View/user/user-profile-view.fxml", new UserController());
                 }
                 default -> statusLabel.setText("Unknown role: " + role);
             }

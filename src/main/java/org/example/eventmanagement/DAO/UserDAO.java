@@ -45,4 +45,21 @@ public class UserDAO {
 
         return user;
     }
+
+    public static boolean insertUser(String address, int personId) {
+        String sql = "INSERT INTO \"user\" (id_person, address) VALUES (?, ?)";
+
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setInt(1, personId);
+            ps.setString(2, address);
+
+            return ps.executeUpdate() > 0;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

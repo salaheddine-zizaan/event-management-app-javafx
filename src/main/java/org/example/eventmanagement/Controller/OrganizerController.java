@@ -20,7 +20,14 @@ public class OrganizerController {
     Organizer organizer = Session.getInstance().getLoggedInOrganizer();
 
     public void initialize() {
+        System.out.println(organizer);
         FirstnameField.setText(organizer.getFirstName());
+        LastnameField.setText(organizer.getLastName());
+        EmailField.setText(organizer.getEmail());
+        CompanyField.setText(organizer.getName());
+        PhoneField.setText(organizer.getPhone());
+        UsernameField.setText(organizer.getUsername());
+        FieldField.setText(organizer.getField());
     }
 }
 

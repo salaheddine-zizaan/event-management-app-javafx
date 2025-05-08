@@ -9,8 +9,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
             xmlns="http://javafx.com/javafx/23.0.1"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="org.example.eventmanagement.Controller.HelloController">
+            xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#14213d" height="55.0" stroke="#14213d" strokeType="INSIDE" width="600.0" />
       <Text fill="WHITE" layoutX="27.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="eventsApp">

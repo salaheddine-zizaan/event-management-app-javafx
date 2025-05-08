@@ -47,4 +47,22 @@ public class OrganizerDAO {
 
         return organizer;
     }
+
+    public static boolean insertOrganizer(int personId, String name, String field) {
+        String sql = "INSERT INTO organizer (id_person, name, field) VALUES (?, ?, ?)";
+
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setInt(1, personId);
+            ps.setString(2, "Default Name"); // You can ask for this in your UI
+            ps.setString(3, "General");
+
+            return ps.executeUpdate() > 0;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

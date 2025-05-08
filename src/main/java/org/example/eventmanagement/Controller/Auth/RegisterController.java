@@ -2,9 +2,14 @@ package org.example.eventmanagement.Controller.Auth;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import org.example.eventmanagement.utils.DatabaseConnection;
+import org.example.eventmanagement.utils.SceneManager;
 import org.mindrot.jbcrypt.BCrypt;
+import org.example.eventmanagement.DAO.UserDAO;
 
 import java.sql.*;
+
+import static org.example.eventmanagement.DAO.OrganizerDAO.insertOrganizer;
+import static org.example.eventmanagement.DAO.UserDAO.insertUser;
 
 public class RegisterController {
 
@@ -60,17 +65,20 @@ public class RegisterController {
                 int personId = rs.getInt("id_person");
 
                 switch (role) {
-                    case "organizer" -> registerOrganizer(conn, personId);
-                    case "user" -> registerUser(conn, personId);
-                }
+                    case "user" -> insertUser("address",personId);
 
+                    case "organizer" -> insertOrganizer(personId,"company name", "company field");
+                }
                 statusLabel.setText("Registration successful!");
+                SceneManager.switchScene("/org/example/eventmanagement/View/auth/login-view.fxml", new LoginController());
+
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
             statusLabel.setText("Registration failed. Email may already exist.");
         }
+
     }
 
     private void registerOrganizer(Connection conn, int personId) throws SQLException {
