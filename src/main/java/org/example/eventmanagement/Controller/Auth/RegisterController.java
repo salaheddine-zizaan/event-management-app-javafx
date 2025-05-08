@@ -81,20 +81,4 @@ public class RegisterController {
 
     }
 
-    private void registerOrganizer(Connection conn, int personId) throws SQLException {
-        String sql = "INSERT INTO organizer (id_person, name, field) VALUES (?, ?, ?)";
-        PreparedStatement ps = conn.prepareStatement(sql);
-        ps.setInt(1, personId);
-        ps.setString(2, "Default Name"); // You can ask for this in your UI
-        ps.setString(3, "General");
-        ps.executeUpdate();
-    }
-
-    private void registerUser(Connection conn, int personId) throws SQLException {
-        String sql = "INSERT INTO \"user\" (id_person, address) VALUES (?, ?)";
-        PreparedStatement ps = conn.prepareStatement(sql);
-        ps.setInt(1, personId);
-        ps.setString(2, "N/A");
-        ps.executeUpdate();
-    }
 }

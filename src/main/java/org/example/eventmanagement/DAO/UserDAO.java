@@ -3,15 +3,13 @@ package org.example.eventmanagement.DAO;
 import org.example.eventmanagement.Model.User;
 import org.example.eventmanagement.utils.DatabaseConnection;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserDAO {
 
     public static User getByIdPerson(int id_person) {
-        User user = null;
         String query = """
                 SELECT u.id_user, u.address, p.*
                 FROM user u
@@ -26,7 +24,7 @@ public class UserDAO {
             ResultSet rs = stmt.executeQuery();
 
             if (rs.next()) {
-                user = new User(
+                return new User(
                         rs.getInt("id_user"),
                         rs.getInt("id_person"),
                         rs.getString("firstname"),
@@ -39,11 +37,12 @@ public class UserDAO {
                         rs.getString("address")
                 );
             }
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        return user;
+        return null;
     }
 
     public static boolean insertUser(String address, int personId) {
@@ -54,12 +53,76 @@ public class UserDAO {
 
             ps.setInt(1, personId);
             ps.setString(2, address);
-
             return ps.executeUpdate() > 0;
 
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
         }
+    }
+
+    public static boolean updateUser(String address, int personId) {
+        String sql = "UPDATE \"user\" SET address = ? WHERE id_person = ?";
+
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setString(1, address);
+            ps.setInt(2, personId);
+            return ps.executeUpdate() > 0;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public static boolean deleteUser(int personId) {
+        String sql = "DELETE FROM \"user\" WHERE id_person = ?";
+
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+
+            ps.setInt(1, personId);
+            return ps.executeUpdate() > 0;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public static List<User> getAllUsers() {
+        List<User> users = new ArrayList<>();
+        String sql = """
+                SELECT u.id_user, u.address, p.*
+                FROM user u
+                JOIN person p ON u.id_person = p.id_person
+                """;
+
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+
+            while (rs.next()) {
+                users.add(new User(
+                        rs.getInt("id_user"),
+                        rs.getInt("id_person"),
+                        rs.getString("firstname"),
+                        rs.getString("lastname"),
+                        rs.getString("email"),
+                        rs.getString("phone"),
+                        rs.getString("password"),
+                        rs.getString("role"),
+                        rs.getString("username"),
+                        rs.getString("address")
+                ));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return users;
     }
 }

@@ -9,6 +9,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
+import org.example.eventmanagement.Controller.Auth.LoginController;
+import org.example.eventmanagement.Controller.Auth.RegisterController;
+import org.example.eventmanagement.utils.SceneManager;
 
 import java.io.IOException;
 
@@ -19,18 +22,10 @@ public class HelloController {
 
     @FXML
     private void goToLogin(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/eventmanagement/view/auth/login-view.fxml"));
-        Parent root = fxmlLoader.load();
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show();
+        SceneManager.switchScene("/org/example/eventmanagement/view/auth/login-view.fxml", new LoginController());
     }
     @FXML
     private void goToRegister(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/org/example/eventmanagement/view/auth/register-view.fxml"));
-        Parent root = fxmlLoader.load();
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show();
+        SceneManager.switchScene("/org/example/eventmanagement/view/auth/register-view.fxml", new RegisterController());
     }
 }
