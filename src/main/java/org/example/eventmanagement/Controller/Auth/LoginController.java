@@ -25,7 +25,7 @@ import java.util.Objects;
 public class LoginController {
 
     @FXML private TextField emailField;
-    @FXML private PasswordField passwordField;
+                            @FXML private PasswordField passwordField;
     @FXML private Text statusLabel;
 
     public void handleLogin() {
