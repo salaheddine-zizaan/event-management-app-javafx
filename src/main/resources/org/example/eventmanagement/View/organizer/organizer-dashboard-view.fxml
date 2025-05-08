@@ -11,7 +11,14 @@
             fx:controller="org.example.eventmanagement.Controller.OrganizerController"
             prefHeight="400.0" prefWidth="600.0">
 
-    <Button text="Create Event" layoutX="20" layoutY="20" onAction="#handleCreateEvent" />
+    <Label text="Event List" layoutX="220" layoutY="10" style="-fx-font-size: 20px;"/>
+
+    <ListView fx:id="eventListView" layoutX="50" layoutY="40" prefWidth="500" prefHeight="180"/>
+
+    <Button fx:id="createEventButton" text="Create Event" layoutX="20" layoutY="300" onAction="#handleCreateEvent" />
+    <Button fx:id="updateEventButton" text="Update Event" layoutX="20" layoutY="340" onAction="#handleUpdateEvent" />
+    <Button fx:id="deleteEventButton" text="Delete Event" layoutX="20" layoutY="380" onAction="#handleDeleteEvent" />
+
 
 
 </AnchorPane>

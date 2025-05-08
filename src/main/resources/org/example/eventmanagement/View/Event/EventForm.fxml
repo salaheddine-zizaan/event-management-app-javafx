@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 
 <AnchorPane xmlns:fx="http://javafx.com/fxml"
-            fx:controller="org.example.eventmanagement.Controller.Event.EventController"
+            fx:controller="org.example.eventmanagement.Controller.OrganizerController"
             prefWidth="600" prefHeight="600">
 
     <!-- Title -->
