@@ -6,20 +6,21 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Label;
-
-
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import org.example.eventmanagement.DAO.AdminDAO;
+import org.example.eventmanagement.DAO.OrganizerDAO;
+import org.example.eventmanagement.DAO.PersonDAO;
+import org.example.eventmanagement.DAO.UserDAO;
+import org.example.eventmanagement.Model.Admin;
+import org.example.eventmanagement.Model.Organizer;
+import org.example.eventmanagement.Model.Person;
+import org.example.eventmanagement.Model.User;
+import org.example.eventmanagement.utils.Session;
 import org.mindrot.jbcrypt.BCrypt;
 
+import java.io.IOException;
+import java.util.Objects;
 
 public class LoginController {
 
@@ -27,57 +28,60 @@ public class LoginController {
     @FXML private PasswordField passwordField;
     @FXML private Text statusLabel;
 
-
-    public void handleLogin(){
+    public void handleLogin() {
         String email = emailField.getText();
         String password = passwordField.getText();
 
-        String DB_URL = "jdbc:postgresql://localhost:5432/event_management";
-        String DB_USER = "postgres";
-        String DB_PASSWORD = "password";
+        try {
+            Person person = PersonDAO.getByEmail(email);
 
-        try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD)) {
-            String query = "SELECT * FROM person WHERE email = ?";
-            PreparedStatement stmt = conn.prepareStatement(query);
-            stmt.setString(1, email);
+            if (person == null) {
+                statusLabel.setText("User not found.");
+                return;
+            }
 
-            ResultSet rs = stmt.executeQuery();
-            if (rs.next()) {
-                String hashedPassword = rs.getString("password");
-                String role = rs.getString("role");
+            if (!BCrypt.checkpw(password, person.getPassword())) {
+                statusLabel.setText("Incorrect password.");
+                return;
+            }
 
-                if (BCrypt.checkpw(password, hashedPassword)) {
-                    // Successful login
-                    statusLabel.setText("Login successful as " + role);
-                } else {
-                    statusLabel.setText("Incorrect password");
+            String role = person.getRole();
+            Session.getInstance().setLoggedInPerson(person); // Save base person data
+
+
+            switch (role) {
+                case "admin" -> {
+                    Admin admin = AdminDAO.getByIdPerson(person.getIdPerson());
+                    Session.getInstance().setLoggedInAdmin(admin);
+                    loadDashboard("/admin/profile.fxml");
                 }
-            } else {
-                statusLabel.setText("User not found");
+                case "organizer" -> {
+                    Organizer organizer = OrganizerDAO.getByIdPerson(person.getIdPerson());
+                    Session.getInstance().setLoggedInOrganizer(organizer);
+                    loadDashboard("/organizer/profile.fxml");
+                }
+                case "user" -> {
+                    User user = UserDAO.getByIdPerson(person.getIdPerson());
+                    Session.getInstance().setLoggedInUser(user);
+                    loadDashboard("/user/profile.fxml");
+                }
+                default -> statusLabel.setText("Unknown role: " + role);
             }
 
-        } catch (SQLException e) {
+        } catch (Exception e) {
             e.printStackTrace();
-            statusLabel.setText("Database error");
+            statusLabel.setText("Login error: " + e.getMessage());
         }
     }
 
-    private void loadDashboardByRole(String role) {
-        String fxml = switch (role) {
-            case "admin" -> "admin_dashboard.fxml";
-            case "organizer" -> "organizer_dashboard.fxml";
-            case "user" -> "user_dashboard.fxml";
-            default -> null;
-        };
-        if (fxml != null) {
-            try {
-                Parent root = FXMLLoader.load(getClass().getResource(fxml));
-                Stage stage = (Stage) emailField.getScene().getWindow();
-                stage.setScene(new Scene(root));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+    private void loadDashboard(String fxml) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("/org/example/eventmanagement/View" + fxml));
+            Stage stage = (Stage) emailField.getScene().getWindow();
+            stage.setScene(new Scene(root));
+        } catch (IOException e) {
+            e.printStackTrace();
+            statusLabel.setText("Unable to load dashboard.");
         }
     }
-
 }

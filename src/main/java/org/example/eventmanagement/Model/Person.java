@@ -1,61 +1,91 @@
 package org.example.eventmanagement.Model;
 
 public class Person {
-    private int id;
+    private int idPerson;
     private String firstName;
     private String lastName;
     private String email;
-    private String username;
     private String phone;
-    private String password;  // hashed password
-    private String role;      // "admin", "organizer", or "user"
+    private String password;
+    private String role;
+    private String username;
 
-    // Constructors
     public Person() {}
 
-    public Person(int id, String firstName, String lastName, String email, String phone, String username, String password, String role) {
-        this.id = id;
+    public Person(int idPerson, String firstName, String lastName, String email,
+                  String phone, String password, String role, String username) {
+        this.idPerson = idPerson;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.username = username;
         this.phone = phone;
         this.password = password;
         this.role = role;
-    }
-
-    public Person(String firstName, String lastName, String email, String phone, String username, String password, String role) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
         this.username = username;
-        this.phone = phone;
-        this.password = password;
-        this.role = role;
     }
 
     // Getters and Setters
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
+    public int getIdPerson() {
+        return idPerson;
+    }
 
-    public String getFirstName() { return firstName; }
-    public void setFirstName(String firstName) { this.firstName = firstName; }
+    public void setIdPerson(int idPerson) {
+        this.idPerson = idPerson;
+    }
 
-    public String getLastName() { return lastName; }
-    public void setLastName(String lastName) { this.lastName = lastName; }
+    public String getFirstName() {
+        return firstName;
+    }
 
-    public String getEmail() { return email; }
-    public void setEmail(String email) { this.email = email; }
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
 
-    public String getUsername() { return username; }
-    public void getUsername(String username) { this.username = username; }
+    public String getLastName() {
+        return lastName;
+    }
 
-    public String getPhone() { return phone; }
-    public void setPhone(String phone) { this.phone = phone; }
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
-    public String getPassword() { return password; }
-    public void setPassword(String password) { this.password = password; }
+    public String getEmail() {
+        return email;
+    }
 
-    public String getRole() { return role; }
-    public void setRole(String role) { this.role = role; }
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 }
