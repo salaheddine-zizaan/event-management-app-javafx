@@ -8,6 +8,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import org.example.eventmanagement.Controller.AdminController;
 import org.example.eventmanagement.DAO.AdminDAO;
 import org.example.eventmanagement.DAO.OrganizerDAO;
 import org.example.eventmanagement.DAO.PersonDAO;
@@ -17,6 +18,7 @@ import org.example.eventmanagement.Model.Organizer;
 import org.example.eventmanagement.Model.Person;
 import org.example.eventmanagement.Model.User;
 import org.example.eventmanagement.utils.Session;
+import org.example.eventmanagement.utils.sceneManager;
 import org.mindrot.jbcrypt.BCrypt;
 
 import java.io.IOException;
@@ -53,17 +55,17 @@ public class LoginController {
                 case "admin" -> {
                     Admin admin = AdminDAO.getByIdPerson(person.getIdPerson());
                     Session.getInstance().setLoggedInAdmin(admin);
-                    loadDashboard("/admin/profile.fxml");
+                    sceneManager.switchScene("/admin/admin_dashboard.fxml", new AdminController());
                 }
                 case "organizer" -> {
                     Organizer organizer = OrganizerDAO.getByIdPerson(person.getIdPerson());
                     Session.getInstance().setLoggedInOrganizer(organizer);
-                    loadDashboard("/organizer/profile.fxml");
+                    sceneManager.switchScene("/organizer/profile.fxml", new AdminController());
                 }
                 case "user" -> {
                     User user = UserDAO.getByIdPerson(person.getIdPerson());
                     Session.getInstance().setLoggedInUser(user);
-                    loadDashboard("/user/profile.fxml");
+                    sceneManager.switchScene("/user/profile.fxml", new AdminController());
                 }
                 default -> statusLabel.setText("Unknown role: " + role);
             }
@@ -74,7 +76,7 @@ public class LoginController {
         }
     }
 
-    private void loadDashboard(String fxml) {
+/*    private void loadDashboard(String fxml) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/org/example/eventmanagement/View" + fxml));
             Stage stage = (Stage) emailField.getScene().getWindow();
@@ -83,5 +85,5 @@ public class LoginController {
             e.printStackTrace();
             statusLabel.setText("Unable to load dashboard.");
         }
-    }
+    }*/
 }
