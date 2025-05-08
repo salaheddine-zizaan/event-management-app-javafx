@@ -1,20 +1,15 @@
 package org.example.eventmanagement;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
-
-import java.io.IOException;
+import org.example.eventmanagement.Controller.Auth.LoginController;
+import org.example.eventmanagement.utils.SceneManager;
 
 public class HelloApplication extends Application {
     @Override
-    public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("view/hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("Hello!");
-        stage.setScene(scene);
-        stage.show();
+    public void start(Stage stage) {
+        SceneManager.setStage(stage);
+        SceneManager.switchScene("/org/example/eventmanagement/View/Auth/login-view.fxml", new LoginController());
     }
 
     public static void main(String[] args) {

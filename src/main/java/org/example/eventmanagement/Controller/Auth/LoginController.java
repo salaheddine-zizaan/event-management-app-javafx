@@ -8,6 +8,9 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import org.example.eventmanagement.Controller.AdminController;
+import org.example.eventmanagement.Controller.OrganizerController;
+import org.example.eventmanagement.Controller.UserController;
 import org.example.eventmanagement.DAO.AdminDAO;
 import org.example.eventmanagement.DAO.OrganizerDAO;
 import org.example.eventmanagement.DAO.PersonDAO;
@@ -16,6 +19,7 @@ import org.example.eventmanagement.Model.Admin;
 import org.example.eventmanagement.Model.Organizer;
 import org.example.eventmanagement.Model.Person;
 import org.example.eventmanagement.Model.User;
+import org.example.eventmanagement.utils.SceneManager;
 import org.example.eventmanagement.utils.Session;
 import org.mindrot.jbcrypt.BCrypt;
 
@@ -54,16 +58,18 @@ public class LoginController {
                     Admin admin = AdminDAO.getByIdPerson(person.getIdPerson());
                     Session.getInstance().setLoggedInAdmin(admin);
                     loadDashboard("/admin/profile.fxml");
+                    SceneManager.switchScene("/admin/profile.fxml", AdminController.class);
+
                 }
                 case "organizer" -> {
                     Organizer organizer = OrganizerDAO.getByIdPerson(person.getIdPerson());
                     Session.getInstance().setLoggedInOrganizer(organizer);
-                    loadDashboard("/organizer/profile.fxml");
+                    SceneManager.switchScene("/org/example/eventmanagement/View/organizer/organizer-profile-view.fxml", new OrganizerController()) ;
                 }
                 case "user" -> {
                     User user = UserDAO.getByIdPerson(person.getIdPerson());
                     Session.getInstance().setLoggedInUser(user);
-                    loadDashboard("/user/profile.fxml");
+                    SceneManager.switchScene("/user/profile.fxml", UserController.class);
                 }
                 default -> statusLabel.setText("Unknown role: " + role);
             }

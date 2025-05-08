@@ -21,7 +21,7 @@ public class OrganizerController {
 
     public void initialize() {
         FirstnameField.setText(organizer.getFirstName());
-
-
     }
 }
+
+
