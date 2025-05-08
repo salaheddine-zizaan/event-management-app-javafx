@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.example.eventmanagement.Controller.Event.EventController"
+            prefWidth="600" prefHeight="600">
+
+    <!-- Title -->
+    <Label text="Event List" layoutX="220" layoutY="10" style="-fx-font-size: 20px;"/>
+
+    <!-- ListView at the top -->
+    <ListView fx:id="eventListView" layoutX="50" layoutY="40" prefWidth="500" prefHeight="180"/>
+
+    <!-- Form Title -->
+    <Label text="Create Event" layoutX="220" layoutY="230" style="-fx-font-size: 20px;"/>
+
+    <!-- Form Fields -->
+    <Label text="City:" layoutX="50" layoutY="270"/>
+    <TextField fx:id="cityField" layoutX="150" layoutY="265"/>
+
+    <Label text="Country:" layoutX="50" layoutY="310"/>
+    <TextField fx:id="countryField" layoutX="150" layoutY="305"/>
+
+    <Label text="Location:" layoutX="50" layoutY="350"/>
+    <TextField fx:id="locationField" layoutX="150" layoutY="345"/>
+
+    <Label text="Date:" layoutX="50" layoutY="390"/>
+    <DatePicker fx:id="datePicker" layoutX="150" layoutY="385"/>
+
+    <Label text="Start Time:" layoutX="50" layoutY="430"/>
+    <TextField fx:id="startTimeField" promptText="HH:mm:ss" layoutX="150" layoutY="425"/>
+
+    <Label text="End Time:" layoutX="50" layoutY="470"/>
+    <TextField fx:id="endTimeField" promptText="HH:mm:ss" layoutX="150" layoutY="465"/>
+
+    <Label text="Capacity:" layoutX="50" layoutY="510"/>
+    <TextField fx:id="capacityField" layoutX="150" layoutY="505"/>
+
+    <Label text="Price:" layoutX="50" layoutY="550"/>
+    <TextField fx:id="priceField" layoutX="150" layoutY="545"/>
+
+    <!-- Create Button -->
+    <Button text="Create Event" layoutX="220" layoutY="590" onAction="#handleCreateEvent"/>
+</AnchorPane>
