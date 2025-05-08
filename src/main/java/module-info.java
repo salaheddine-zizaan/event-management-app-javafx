@@ -12,5 +12,7 @@ module org.example.eventmanagement {
     exports org.example.eventmanagement.Controller;
     opens org.example.eventmanagement.Controller to javafx.fxml;
     opens org.example.eventmanagement.Controller.Auth to javafx.fxml;
+    exports org.example.eventmanagement.utils;
+    opens org.example.eventmanagement.utils to javafx.fxml;
 
 }

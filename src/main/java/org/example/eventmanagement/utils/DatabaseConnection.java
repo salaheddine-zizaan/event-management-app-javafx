@@ -1,4 +1,4 @@
-package org.example.eventmanagement.Controller;
+package org.example.eventmanagement.utils;
 
 
 import java.io.InputStream;
