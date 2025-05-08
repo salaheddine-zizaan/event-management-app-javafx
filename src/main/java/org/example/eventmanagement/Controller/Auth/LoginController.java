@@ -2,6 +2,7 @@ package org.example.eventmanagement.Controller.Auth;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
@@ -20,6 +21,10 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.example.eventmanagement.Controller.DatabaseConnection;
 import org.mindrot.jbcrypt.BCrypt;
+import javafx.event.ActionEvent;
+
+
+import org.example.eventmanagement.Controller.OrganizerController;
 
 
 public class LoginController {
@@ -29,7 +34,8 @@ public class LoginController {
     @FXML private Text statusLabel;
 
 
-    public void handleLogin(){
+    @FXML
+    private void handleLogin(ActionEvent event) {
         String email = emailField.getText();
         String password = passwordField.getText();
 
@@ -44,8 +50,15 @@ public class LoginController {
                 String role = rs.getString("role");
 
                 if (BCrypt.checkpw(password, hashedPassword)) {
-                    // Successful login
                     statusLabel.setText("Login successful as " + role);
+
+                    // Redirection vers dashboard
+                    Parent dashboardRoot = FXMLLoader.load(getClass().getResource("/org/example/eventmanagement/View/organizer/organizer-dashboard-view.fxml"));
+                    Scene dashboardScene = new Scene(dashboardRoot);
+                    Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    window.setScene(dashboardScene);
+                    window.show();
+
                 } else {
                     statusLabel.setText("Incorrect password");
                 }
@@ -53,11 +66,13 @@ public class LoginController {
                 statusLabel.setText("User not found");
             }
 
-        } catch (SQLException e) {
+        } catch (SQLException | IOException e) {
             e.printStackTrace();
-            statusLabel.setText("Database error");
+            statusLabel.setText("Login failed: " + e.getMessage());
         }
     }
+
+
 
     private void loadDashboardByRole(String role) {
         String fxml = switch (role) {

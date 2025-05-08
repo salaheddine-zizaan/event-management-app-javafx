@@ -11,4 +11,7 @@
             fx:controller="org.example.eventmanagement.Controller.OrganizerController"
             prefHeight="400.0" prefWidth="600.0">
 
+    <Button text="Create Event" layoutX="20" layoutY="20" onAction="#handleCreateEvent" />
+
+
 </AnchorPane>
