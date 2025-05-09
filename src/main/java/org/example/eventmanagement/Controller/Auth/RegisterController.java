@@ -26,7 +26,7 @@ public class RegisterController {
 
     @FXML
     public void initialize() {
-        roleComboBox.getItems().addAll( "organizer", "user");
+        roleComboBox.getItems().addAll( "organizer", "user", "admin");
     }
 
     @FXML
