@@ -18,7 +18,7 @@ import org.example.eventmanagement.Model.Organizer;
 import org.example.eventmanagement.Model.Person;
 import org.example.eventmanagement.Model.User;
 import org.example.eventmanagement.utils.Session;
-import org.example.eventmanagement.utils.sceneManager;
+import org.example.eventmanagement.utils.SceneManager;
 import org.mindrot.jbcrypt.BCrypt;
 
 import java.io.IOException;
@@ -55,17 +55,17 @@ public class LoginController {
                 case "admin" -> {
                     Admin admin = AdminDAO.getByIdPerson(person.getIdPerson());
                     Session.getInstance().setLoggedInAdmin(admin);
-                    sceneManager.switchScene("/admin/admin_dashboard.fxml", new AdminController());
+                    SceneManager.switchScene("/org/example/eventmanagement/View/admin/admin-profile-view.fxml", new AdminController());
                 }
                 case "organizer" -> {
                     Organizer organizer = OrganizerDAO.getByIdPerson(person.getIdPerson());
                     Session.getInstance().setLoggedInOrganizer(organizer);
-                    sceneManager.switchScene("/organizer/profile.fxml", new AdminController());
+                    SceneManager.switchScene("/org/example/eventmanagement/View/organizer/organizer-profile-view.fxml", new AdminController());
                 }
                 case "user" -> {
                     User user = UserDAO.getByIdPerson(person.getIdPerson());
                     Session.getInstance().setLoggedInUser(user);
-                    sceneManager.switchScene("/user/profile.fxml", new AdminController());
+                    SceneManager.switchScene("/org/example/eventmanagement/View/user/user-profile-view.fxml", new AdminController());
                 }
                 default -> statusLabel.setText("Unknown role: " + role);
             }

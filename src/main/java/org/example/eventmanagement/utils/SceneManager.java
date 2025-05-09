@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class sceneManager {
+public class SceneManager {
     private static Stage primaryStage;
 
 
@@ -19,7 +19,7 @@ public class sceneManager {
 
     public static void switchScene(String fxml, Object controller) {
         try{
-            FXMLLoader loader = new FXMLLoader(sceneManager.class.getResource(fxml));
+            FXMLLoader loader = new FXMLLoader(SceneManager.class.getResource(fxml));
             loader.setController(controller);
             Parent root = loader.load();
             Scene scene = new Scene(root);
