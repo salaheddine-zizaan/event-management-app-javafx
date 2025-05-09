@@ -8,8 +8,8 @@ public class Event {
     private Integer organizerId;
     private Integer adminId;
     private boolean approved;
-    private int capacity;
-    private double price;
+    private Integer capacity;
+    private Double  price;
     private LocalDate date;
     private String location;
     private String city;
@@ -50,7 +50,7 @@ public class Event {
         this.approved = approved;
     }
 
-    public int getCapacity() {
+    public Integer getCapacity() {
         return capacity;
     }
 
@@ -58,7 +58,7 @@ public class Event {
         this.capacity = capacity;
     }
 
-    public double getPrice() {
+    public Double  getPrice() {
         return price;
     }
 
@@ -144,4 +144,5 @@ public class Event {
         this.startTime = startTime;
         this.endTime = endTime;
     }
+
 }
