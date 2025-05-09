@@ -2,6 +2,7 @@ package org.example.eventmanagement.Controller.Auth;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import org.example.eventmanagement.Controller.DatabaseConnection;
+import org.example.eventmanagement.utils.SceneManager;
 import org.mindrot.jbcrypt.BCrypt;
 import org.example.eventmanagement.DAO.UserDAO;
 
@@ -27,6 +28,8 @@ public class RegisterController {
     public void initialize() {
         roleComboBox.getItems().addAll( "organizer", "user");
     }
+
+
 
     @FXML
     public void handleRegister() {
@@ -66,8 +69,8 @@ public class RegisterController {
                 int personId = rs.getInt("id_person");
 
                 switch (role) {
-                    case "organizer" -> registerOrganizer(conn, personId);
-                    case "user" -> registerUser(conn, personId);
+                    case "user" -> insertUser("address",personId);
+                    case "organizer" -> insertOrganizer(personId,"company name", "company field");
                 }
 
                 statusLabel.setText("Registration successful!");
