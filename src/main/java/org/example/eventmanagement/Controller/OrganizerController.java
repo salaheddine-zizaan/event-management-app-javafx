@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 import org.example.eventmanagement.Controller.Event.EditEventController;
 import org.example.eventmanagement.Model.Event;
 import org.example.eventmanagement.Model.Organizer;
+import org.example.eventmanagement.utils.SceneManager;
 import org.example.eventmanagement.utils.Session;
 
 
