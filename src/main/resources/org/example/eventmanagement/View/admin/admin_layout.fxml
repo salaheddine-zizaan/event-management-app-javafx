@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="1030.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.eventmanagement.Controller.AdminController">
+   <children>
+      <BorderPane layoutX="-4.0" prefHeight="469.0" prefWidth="991.0" style="-fx-background-color: #efefe4;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <center>
+            <BorderPane prefHeight="498.0" prefWidth="583.0" BorderPane.alignment="CENTER">
+               <top>
+                  <Pane prefHeight="75.0" prefWidth="674.0" style="-fx-background-color: FCA311; -fx-background-radius: 20;" styleClass="topbar" stylesheets="@../css/stylesheet.css" BorderPane.alignment="CENTER">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="11.0" prefHeight="34.0" prefWidth="214.0" stylesheets="@../css/stylesheet.css">
+                           <children>
+                              <Label prefHeight="34.0" prefWidth="71.0" styleClass="topbar" stylesheets="@../css/stylesheet.css" text="Bonjour ">
+                                 <font>
+                                    <Font name="Poppins SemiBold" size="21.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets top="4.0" />
+                                 </padding>
+                              </Label>
+                              <Label id="username_dash" prefHeight="32.0" prefWidth="140.0" styleClass="topbar" stylesheets="@../css/stylesheet.css" text="Mohamed">
+                                 <font>
+                                    <Font name="Poppins SemiBold" size="20.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets top="4.0" />
+                                 </padding>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox id="profile_btn" alignment="CENTER_RIGHT" layoutX="653.0" layoutY="22.0" prefHeight="35.0" prefWidth="88.0" styleClass="profileBTN" stylesheets="@../css/stylesheet.css">
+                           <children>
+                              <Label prefHeight="18.0" prefWidth="97.0" style="-fx-text-fill: white;" stylesheets="@../css/stylesheet.css" text="My Profle" textFill="WHITE">
+                                 <font>
+                                    <Font name="Poppins Bold" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="39.0" prefHeight="25.0" prefWidth="252.0" stylesheets="@../css/stylesheet.css">
+                           <children>
+                              <Label prefHeight="23.0" prefWidth="212.0" styleClass="topbar2" stylesheets="@../css/stylesheet.css" text="comment je peux vous aider ?" textFill="#8e3030eb">
+                                 <font>
+                                    <Font name="Poppins Light" size="13.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets top="4.0" />
+                                 </padding>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                     <BorderPane.margin>
+                        <Insets right="9.0" top="11.0" />
+                     </BorderPane.margin>
+                  </Pane>
+               </top>
+               <center>
+                  <Pane id="mainContent_admin" fx:id="mainContent_admin" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+               </center>
+            </BorderPane>
+         </center>
+         <left>
+            <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="252.0" style="-fx-background-radius: 0 30 30 0;" styleClass="sidebar" stylesheets="@../css/stylesheet.css" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="108.0" prefWidth="252.0">
+                     <children>
+                        <ImageView fitHeight="57.0" fitWidth="141.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assets/logo.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="14.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="34.0" prefWidth="252.0">
+                     <children>
+                        <Label stylesheets="@../css/stylesheet.css" text="Admin : ">
+                           <font>
+                              <Font name="Poppins Medium" size="12.0" />
+                           </font>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <padding>
+                              <Insets left="12.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <VBox.margin>
+                        <Insets bottom="-9.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox id="dashboard_btn" alignment="CENTER" prefHeight="47.0" prefWidth="250.0" styleClass="hboxBTN" stylesheets="@../css/stylesheet.css">
+                     <children>
+                        <Label stylesheets="@../css/stylesheet.css" text="Dashboard">
+                           <font>
+                              <Font name="Poppins Bold" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox id="collaborator_btn" alignment="CENTER" prefHeight="47.0" prefWidth="250.0" styleClass="hboxBTN" stylesheets="@../css/stylesheet.css">
+                     <children>
+                        <Label stylesheets="@../css/stylesheet.css" text="Collaborators">
+                           <font>
+                              <Font name="Poppins Bold" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox id="events_btn" alignment="CENTER" prefHeight="47.0" prefWidth="250.0" styleClass="hboxBTN" stylesheets="@../css/stylesheet.css">
+                     <children>
+                        <Label stylesheets="@../css/stylesheet.css" text="Events">
+                           <font>
+                              <Font name="Poppins Bold" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <BorderPane prefHeight="379.0" prefWidth="252.0">
+                     <bottom>
+                        <HBox alignment="CENTER" prefHeight="37.0" prefWidth="252.0" stylesheets="@../css/stylesheet.css" BorderPane.alignment="CENTER">
+                           <children>
+                              <HBox id="logout-btn" alignment="CENTER" prefHeight="58.0" prefWidth="226.0" styleClass="profil" stylesheets="@../css/stylesheet.css">
+                                 <children>
+                                    <Label prefHeight="33.0" prefWidth="81.0" styleClass="deco" stylesheets="@../css/stylesheet.css" text="Déconnexion">
+                                       <font>
+                                          <Font name="Poppins Bold" size="13.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <padding>
+                                    <Insets right="10.0" />
+                                 </padding>
+                              </HBox>
+                           </children>
+                        </HBox>
+                     </bottom>
+                     <VBox.margin>
+                        <Insets top="18.0" />
+                     </VBox.margin>
+                  </BorderPane>
+               </children>
+               <BorderPane.margin>
+                  <Insets right="7.0" />
+               </BorderPane.margin>
+            </VBox>
+         </left>
+      </BorderPane>
+   </children>
+</AnchorPane>
