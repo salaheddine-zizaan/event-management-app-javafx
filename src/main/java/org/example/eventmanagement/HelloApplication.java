@@ -12,7 +12,7 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) {
         SceneManager.setStage(stage);
-        SceneManager.switchScene("/org/example/eventmanagement/View/Auth/login-view.fxml", new LoginController());
+        SceneManager.switchScene("/org/example/eventmanagement/View/Auth/login-view.fxml");
     }
 
     public static void main(String[] args) {

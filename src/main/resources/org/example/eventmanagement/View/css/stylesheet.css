@@ -1,0 +1,85 @@
+@font-face {
+    -fx-font-family: 'Poppins';
+    -fx-font-weight: normal;
+    src: url('../fonts/Poppins-Regular.ttf');
+}
+
+@font-face {
+    -fx-font-family: 'Poppins';
+    -fx-font-weight: bold;
+    src: url('../fonts/Poppins-Bold.ttf');
+}
+
+@font-face {
+    -fx-font-family: 'Poppins';
+    -fx-font-weight: lighter;
+    src: url('../fonts/Poppins-Light.ttf');
+}
+
+@font-face {
+    -fx-font-family: 'Poppins';
+    -fx-font-weight: 600;
+    src: url('../fonts/Poppins-SemiBold.ttf');
+}
+
+/* Apply Poppins font globally */
+.root {
+    -fx-font-family: 'Poppins';
+}
+
+.sidebar{
+    -fx-background-color: #FFFFFF;
+}
+
+.sidebar .glyphicon {
+    -fx-text-fill: #14213D;
+}
+.sidebar .label {
+    -fx-text-fill: #14213D;
+}
+
+.hboxBTN{
+    -fx-font-weight: bold;
+}
+
+.deco{
+    -fx-font-weight: bold;
+}
+
+.hboxBTN:hover{
+    -fx-border-width: 0 0 0 4px ;
+    -fx-cursor: hand;
+    -fx-border-color: #FCA311;
+}
+
+.profil{
+    -fx-border-width: 2px ;
+    -fx-border-radius: 5px;
+    -fx-border-color: #FCA311;
+}
+
+.txt{
+    -fx-text-fill: #FCA311;
+}
+
+.profil:hover {
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+    -fx-cursor: hand;
+}
+
+.topbar{
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+    -fx-text-fill: #fff;
+}
+
+
+.topbar2{
+    -fx-font-weight: lighter;
+    -fx-text-fill: #fff;
+}
+
+.profileBTN:hover{
+    -fx-cursor: hand;
+}
