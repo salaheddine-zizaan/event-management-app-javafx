@@ -29,6 +29,8 @@ public class RegisterController {
         roleComboBox.getItems().addAll( "organizer", "user");
     }
 
+
+
     @FXML
     public void handleRegister() {
         String firstname = firstNameField.getText();

@@ -28,7 +28,7 @@
       </Text>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d3d8e1" height="152.0" layoutX="236.0" layoutY="130.0" stroke="#14213d" strokeType="INSIDE" width="128.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d3d8e1" height="152.0" layoutX="383.0" layoutY="130.0" stroke="#14213d" strokeType="INSIDE" width="128.0" />
-      <Button onAction="#gotoAddEvent" layoutX="371.0" layoutY="15.0" mnemonicParsing="false" style="-fx-background-color: FCA311;" text="Add Event" textFill="WHITE">
+      <Button onAction="#gotoEvents" layoutX="371.0" layoutY="15.0" mnemonicParsing="false" style="-fx-background-color: FCA311;" text="Add Event" textFill="WHITE">
          <font>
             <Font name="Poppins Medium" size="14.0" />
          </font>

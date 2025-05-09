@@ -25,9 +25,12 @@ public class OrganizerController {
 
     }
 
-    public void gotoAddEvent() {
+    public void gotoEvents() {
         SceneManager.switchScene("/org/example/eventmanagement/View/Event/EventForm.fxml");
+    }
 
+    public void gotoEditEvents() {
+        SceneManager.switchScene("/org/example/eventmanagement/View/Event/edit_event_form.fxml");
     }
 }
 
