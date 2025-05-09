@@ -19,6 +19,7 @@ import org.example.eventmanagement.utils.Session;
 
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.sql.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -103,49 +104,72 @@ public class OrganizerController {
 
     // Method to handle event creation (opens EventForm window)
     @FXML
-    private void handleCreateEvent() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/eventmanagement/View/Event/EventForm.fxml"));
-            Parent root = loader.load();
-            OrganizerController controller = loader.getController();
+    private void handleCreateEvent(ActionEvent event) {
+        try (Connection conn = getConnection()) {
+            String sql = "INSERT INTO event (location, city, country, price, capacity, date, start_time, end_time) " +
+                    "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, locationField.getText());
+            ps.setString(2, cityField.getText());
+            ps.setString(3, countryField.getText());
+            ps.setBigDecimal(4, new BigDecimal(priceField.getText()));
+            ps.setInt(5, Integer.parseInt(capacityField.getText()));
+            ps.setDate(6, Date.valueOf(datePicker.getValue()));
+            ps.setTime(7, Time.valueOf(LocalTime.parse(startTimeField.getText())));
+            ps.setTime(8, Time.valueOf(LocalTime.parse(endTimeField.getText())));
 
-            // Open a new window for creating an event
-            Stage stage = new Stage();
-            stage.setTitle("Créer un événement");
-            stage.setScene(new Scene(root));
-            stage.show();
-        } catch (IOException e) {
+            ps.executeUpdate();
+
+            // Clear fields after creation
+            locationField.clear();
+            cityField.clear();
+            countryField.clear();
+            priceField.clear();
+            capacityField.clear();
+            startTimeField.clear();
+            endTimeField.clear();
+            datePicker.setValue(null);
+
+            loadEvents();  // Reload events to refresh the ListView
+            showAlert("Succès", "Événement créé avec succès !");
+        } catch (Exception e) {
             e.printStackTrace();
-            showAlert("Erreur", "Impossible d'ouvrir la fenêtre de création d'événement.");
+            showAlert("Erreur", "Impossible de créer l'événement : " + e.getMessage());
         }
     }
+
 
     private Event selectedEvent;
 
+    @FXML
     public void handleUpdateEvent() {
+        selectedEvent = eventListView.getSelectionModel().getSelectedItem();
+        if (selectedEvent == null) {
+            showAlert("Aucun événement sélectionné", "Veuillez sélectionner un événement à modifier.");
+            return;
+        }
+
         try {
-            // Charger le fichier FXML du formulaire de mise à jour
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/eventmanagement/View/Event/edit_event_form.fxml"));
             Parent root = loader.load();
 
-            // Obtenir le contrôleur du formulaire de mise à jour
             EditEventController controller = loader.getController();
+            controller.setEvent(selectedEvent); // ✔️ Passer l'objet Event directement
 
-
-
-            // Passer les données nécessaires à EditEventController, par exemple l'événement à mettre à jour
-            selectedEvent = eventListView.getSelectionModel().getSelectedItem();
-            controller.setEvent(selectedEvent);
-
-            // Afficher la nouvelle fenêtre
             Stage stage = new Stage();
-            stage.setTitle("Update Event");
             stage.setScene(new Scene(root));
-            stage.show();
+            stage.setTitle("Modifier l'événement");
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.showAndWait();
+
+            loadEvents(); // Recharge la liste après modification
+
         } catch (IOException e) {
             e.printStackTrace();
+            showAlert("Erreur", "Impossible d'ouvrir la fenêtre de modification.");
         }
     }
+
 
 
 

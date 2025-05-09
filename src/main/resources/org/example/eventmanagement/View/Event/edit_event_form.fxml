@@ -1,26 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
 
 <AnchorPane xmlns:fx="http://javafx.com/fxml"
-            fx:controller="org.example.eventmanagement.Controller.OrganizerController"
-            prefWidth="600" prefHeight="600">
+            fx:controller="org.example.eventmanagement.Controller.Event.EditEventController"
+            prefWidth="500" prefHeight="600">
+    <VBox alignment="CENTER" spacing="10" layoutX="50" layoutY="20" prefWidth="400" AnchorPane.topAnchor="20" AnchorPane.leftAnchor="50">
+        <Label text="Modifier un Événement" style="-fx-font-size: 20px;"/>
 
-    <VBox xmlns:fx="http://javafx.com/fxml" spacing="10" alignment="CENTER" >
-        <Label text="Event List" layoutX="220" layoutY="10" style="-fx-font-size: 20px;"/>
+        <TextField fx:id="locationField" promptText="Location"/>
+        <TextField fx:id="cityField" promptText="City"/>
+        <TextField fx:id="countryField" promptText="Country"/>
+        <DatePicker fx:id="datePicker"/>
+        <TextField fx:id="priceField" promptText="Price (e.g., 29.99)"/>
+        <TextField fx:id="capacityField" promptText="Capacity (e.g., 100)"/>
+        <TextField fx:id="startTimeField" promptText="Start Time (HH:MM:SS)"/>
+        <TextField fx:id="endTimeField" promptText="End Time (HH:MM:SS)"/>
+        <CheckBox fx:id="approvedCheckBox" text="Approved"/>
 
-        <!-- ListView at the top -->
-        <ListView fx:id="eventListView" layoutX="50" layoutY="40" prefWidth="500" prefHeight="180"/>
-
-        <!-- Form Title -->
-        <Label text="Update Event" layoutX="220" layoutY="230" style="-fx-font-size: 20px;"/>
-        <TextField fx:id="locationField" promptText="Location" />
-        <TextField fx:id="cityField" promptText="City" />
-        <TextField fx:id="countryField" promptText="Country" />
-        <DatePicker fx:id="datePicker" />
-        <TextField fx:id="priceField" promptText="Price" />
-        <TextField fx:id="capacityField" promptText="Capacity" />
-
-        <Button text="Update" onAction="#handleUpdateEvent"/>
+        <Button text="Enregistrer les modifications" onAction="#handleUpdateEvent"/>
     </VBox>
 </AnchorPane>
