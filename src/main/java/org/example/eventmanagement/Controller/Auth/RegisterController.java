@@ -1,8 +1,7 @@
 package org.example.eventmanagement.Controller.Auth;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import org.example.eventmanagement.utils.DatabaseConnection;
-import org.example.eventmanagement.utils.SceneManager;
+import org.example.eventmanagement.Controller.DatabaseConnection;
 import org.mindrot.jbcrypt.BCrypt;
 import org.example.eventmanagement.DAO.UserDAO;
 
@@ -39,6 +38,8 @@ public class RegisterController {
         String password = passwordField.getText();
         String role = roleComboBox.getValue();
 
+        System.out.println(firstname+" "+lastname+" "+email+" "+phone+" "+password+" "+username+" "+role);
+
         if (firstname.isEmpty() || email.isEmpty() || password.isEmpty() || role == null) {
             statusLabel.setText("All fields are required.");
             return;
@@ -65,10 +66,10 @@ public class RegisterController {
                 int personId = rs.getInt("id_person");
 
                 switch (role) {
-                    case "user" -> insertUser("address",personId);
-
-                    case "organizer" -> insertOrganizer(personId,"company name", "company field");
+                    case "organizer" -> registerOrganizer(conn, personId);
+                    case "user" -> registerUser(conn, personId);
                 }
+
                 statusLabel.setText("Registration successful!");
                 SceneManager.switchScene("/org/example/eventmanagement/View/auth/login-view.fxml");
 
