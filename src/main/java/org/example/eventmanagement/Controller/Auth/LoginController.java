@@ -64,12 +64,13 @@ public class LoginController {
                 case "organizer" -> {
                     Organizer organizer = OrganizerDAO.getByIdPerson(person.getIdPerson());
                     Session.getInstance().setLoggedInOrganizer(organizer);
-                    SceneManager.switchScene("org/example/eventmanagement/View/organizer/organizer_layout.fxml");
+                    System.out.println("admin role -------------  dazz");
+                    SceneManager.switchScene("/org/example/eventmanagement/View/organizer/organizer_layout.fxml");
                 }
                 case "user" -> {
                     User user = UserDAO.getByIdPerson(person.getIdPerson());
                     Session.getInstance().setLoggedInUser(user);
-                    SceneManager.switchScene("org/example/eventmanagement/View/user/user_layout.fxml");
+                    SceneManager.switchScene("/org/example/eventmanagement/View/user/user_layout.fxml");
                 }
                 default -> statusLabel.setText("Unknown role: " + role);
             }

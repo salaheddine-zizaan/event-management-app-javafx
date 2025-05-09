@@ -52,6 +52,7 @@ public class SceneManager {
             
             primaryStage.setScene(scene);
             primaryStage.show();
+            primaryStage.centerOnScreen();
         } catch (IOException e) {
             System.out.println("Error: scene switch");
             e.printStackTrace();
