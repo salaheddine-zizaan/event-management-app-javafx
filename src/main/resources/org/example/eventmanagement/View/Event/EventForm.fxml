@@ -4,8 +4,8 @@
 <?import javafx.scene.layout.*?>
 
 <AnchorPane xmlns:fx="http://javafx.com/fxml"
-            fx:controller="org.example.eventmanagement.Controller.Event.EventController"
-            prefWidth="600" prefHeight="600">
+            prefWidth="600" prefHeight="600"
+            fx:controller="org.example.eventmanagement.Controller.Event.EventController">
 
     <!-- Title -->
     <Label text="Event List" layoutX="220" layoutY="10" style="-fx-font-size: 20px;"/>

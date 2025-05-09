@@ -57,17 +57,17 @@ public class LoginController {
                 case "admin" -> {
                     Admin admin = AdminDAO.getByIdPerson(person.getIdPerson());
                     Session.getInstance().setLoggedInAdmin(admin);
-                    SceneManager.switchScene("/org/example/eventmanagement/View/admin/admin-profile-view.fxml", new AdminController());
+                    SceneManager.switchScene("/org/example/eventmanagement/View/admin/admin-profile-view.fxml");
                 }
                 case "organizer" -> {
                     Organizer organizer = OrganizerDAO.getByIdPerson(person.getIdPerson());
                     Session.getInstance().setLoggedInOrganizer(organizer);
-                    SceneManager.switchScene("/org/example/eventmanagement/View/organizer/organizer-profile-view.fxml", new OrganizerController());
+                    SceneManager.switchScene("/org/example/eventmanagement/View/organizer/organizer-dashboard-view.fxml");
                 }
                 case "user" -> {
                     User user = UserDAO.getByIdPerson(person.getIdPerson());
                     Session.getInstance().setLoggedInUser(user);
-                    SceneManager.switchScene("/org/example/eventmanagement/View/user/user-profile-view.fxml", new UserController());
+                    SceneManager.switchScene("/org/example/eventmanagement/View/user/user-profile-view.fxml");
                 }
                 default -> statusLabel.setText("Unknown role: " + role);
             }

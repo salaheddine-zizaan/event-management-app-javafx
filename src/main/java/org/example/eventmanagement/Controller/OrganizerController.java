@@ -4,7 +4,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import org.example.eventmanagement.Controller.Event.EventController;
 import org.example.eventmanagement.Model.Organizer;
+import org.example.eventmanagement.utils.SceneManager;
 import org.example.eventmanagement.utils.Session;
 
 public class OrganizerController {
@@ -20,14 +22,12 @@ public class OrganizerController {
     Organizer organizer = Session.getInstance().getLoggedInOrganizer();
 
     public void initialize() {
-        System.out.println(organizer);
-        FirstnameField.setText(organizer.getFirstName());
-        LastnameField.setText(organizer.getLastName());
-        EmailField.setText(organizer.getEmail());
-        CompanyField.setText(organizer.getName());
-        PhoneField.setText(organizer.getPhone());
-        UsernameField.setText(organizer.getUsername());
-        FieldField.setText(organizer.getField());
+
+    }
+
+    public void gotoAddEvent() {
+        SceneManager.switchScene("/org/example/eventmanagement/View/Event/EventForm.fxml");
+
     }
 }
 

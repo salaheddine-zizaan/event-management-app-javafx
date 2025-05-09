@@ -22,10 +22,10 @@ public class HelloController {
 
     @FXML
     private void goToLogin(ActionEvent event) throws IOException {
-        SceneManager.switchScene("/org/example/eventmanagement/view/auth/login-view.fxml", new LoginController());
+        SceneManager.switchScene("/org/example/eventmanagement/view/auth/login-view.fxml");
     }
     @FXML
     private void goToRegister(ActionEvent event) throws IOException {
-        SceneManager.switchScene("/org/example/eventmanagement/view/auth/register-view.fxml", new RegisterController());
+        SceneManager.switchScene("/org/example/eventmanagement/view/auth/register-view.fxml");
     }
 }

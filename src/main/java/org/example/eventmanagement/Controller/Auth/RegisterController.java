@@ -70,7 +70,7 @@ public class RegisterController {
                     case "organizer" -> insertOrganizer(personId,"company name", "company field");
                 }
                 statusLabel.setText("Registration successful!");
-                SceneManager.switchScene("/org/example/eventmanagement/View/auth/login-view.fxml", new LoginController());
+                SceneManager.switchScene("/org/example/eventmanagement/View/auth/login-view.fxml");
 
             }
 
