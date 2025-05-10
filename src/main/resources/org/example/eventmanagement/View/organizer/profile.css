@@ -1,0 +1,45 @@
+/* Background */
+.background-rect {
+    -fx-fill: #FFF2AF;
+    -fx-stroke: #14213d;
+}
+
+/* Card container */
+.profile-box {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 10;
+    -fx-padding: 20;
+}
+
+/* Title */
+.profile-title {
+    -fx-text-fill: #14213d;
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+}
+
+/* Labels */
+.form-label {
+    -fx-text-fill: #14213d;
+    -fx-font-size: 12px;
+}
+
+/* Inputs */
+.form-input {
+    -fx-background-radius: 5;
+    -fx-border-color: #ccc;
+    -fx-border-radius: 5;
+    -fx-padding: 5 10;
+}
+
+.save-button {
+    -fx-background-color: #fca311;
+    -fx-text-fill: white;
+    -fx-background-radius: 5;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+.save-button:hover {
+    -fx-background-color: #e59400;
+}
+
