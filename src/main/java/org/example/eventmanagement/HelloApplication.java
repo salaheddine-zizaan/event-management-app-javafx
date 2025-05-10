@@ -15,6 +15,13 @@ public class HelloApplication extends Application {
         SceneManager.switchScene("/org/example/eventmanagement/View/Auth/login-view.fxml");
     }
 
+    @Override
+    public void stop() {
+
+        // hna bach t cleani session ola chi haja mora ma tsed l app
+        System.out.println("Closing application");
+    }
+
     public static void main(String[] args) {
         launch();
     }

@@ -25,3 +25,5 @@
       <Text fx:id="statusLabel" layoutX="226.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" visible="true" wrappingWidth="149.0" />
    </children>
 </AnchorPane>
+
+

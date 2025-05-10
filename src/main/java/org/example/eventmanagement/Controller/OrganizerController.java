@@ -3,6 +3,7 @@ package org.example.eventmanagement.Controller;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import org.example.eventmanagement.Model.Organizer;
@@ -17,7 +18,7 @@ public class OrganizerController {
     @FXML private TextField PhoneField;
     @FXML private TextField UsernameField;
     @FXML private TextField FieldField;
-    @FXML private Pane mainContent_admin;
+    @FXML private AnchorPane mainContent_admin;
 
 
     Organizer organizer = Session.getInstance().getLoggedInOrganizer();
@@ -30,7 +31,7 @@ public class OrganizerController {
         // Set the contentPane for view injections
         SceneManager.setContentPane(mainContent_admin);
         // Load default view (e.g., dashboard)
-        SceneManager.switchView("/org/example/eventmanagement/View/organizer/testOrg.fxml");
+        SceneManager.switchView("/org/example/eventmanagement/View/organizer/organizer-profile-view.fxml");
     }
 
 

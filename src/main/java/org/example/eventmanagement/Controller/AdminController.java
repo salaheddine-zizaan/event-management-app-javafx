@@ -2,6 +2,7 @@ package org.example.eventmanagement.Controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import org.example.eventmanagement.utils.SceneManager;
 
@@ -9,7 +10,7 @@ import java.io.IOException;
 
 public class AdminController {
 
-    @FXML private Pane mainContent_admin; // Reference to the pane in the FXML file
+    @FXML private AnchorPane mainContent_admin; // Reference to the pane in the FXML file
 
     @FXML
     public void initialize() {
