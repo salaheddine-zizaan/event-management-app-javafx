@@ -6,6 +6,7 @@ module org.example.eventmanagement {
     requires java.desktop;
     requires java.sql;
     requires jbcrypt;
+    requires jdk.jdi;
 
     opens org.example.eventmanagement to javafx.fxml;
     exports org.example.eventmanagement;
