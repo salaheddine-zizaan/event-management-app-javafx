@@ -40,11 +40,13 @@ public class LoginController {
             Person person = PersonDAO.getByEmail(email);
 
             if (person == null) {
+                statusLabel.setVisible(true);
                 statusLabel.setText("User not found.");
                 return;
             }
 
             if (!BCrypt.checkpw(password, person.getPassword())) {
+                statusLabel.setVisible(true);
                 statusLabel.setText("Incorrect password.");
                 return;
             }
