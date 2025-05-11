@@ -1,0 +1,36 @@
+@font-face {
+    -fx-font-family: 'Poppins';
+    -fx-font-weight: normal;
+    src: url('../fonts/Poppins-Regular.ttf');
+}
+
+@font-face {
+    -fx-font-family: 'Poppins';
+    -fx-font-weight: bold;
+    src: url('../fonts/Poppins-Bold.ttf');
+}
+
+@font-face {
+    -fx-font-family: 'Poppins';
+    -fx-font-weight: lighter;
+    src: url('../fonts/Poppins-Light.ttf');
+}
+
+@font-face {
+    -fx-font-family: 'Poppins';
+    -fx-font-weight: 600;
+    src: url('../fonts/Poppins-SemiBold.ttf');
+}
+
+/* Apply Poppins font globally */
+.root {
+    -fx-font-family: 'Poppins';
+}
+
+
+.content{
+    -fx-background-image: url('/org/example/eventmanagement/View/assets/background.png');
+    -fx-background-size: cover;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}

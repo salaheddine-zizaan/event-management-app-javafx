@@ -12,7 +12,8 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) {
         SceneManager.setStage(stage);
-        SceneManager.switchScene("/org/example/eventmanagement/View/Auth/login-view.fxml");
+        /*SceneManager.switchScene("/org/example/eventmanagement/View/Auth/login-view.fxml");*/
+        SceneManager.switchScene("/org/example/eventmanagement/View/home/landing_page.fxml");
     }
 
     @Override
