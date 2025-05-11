@@ -29,7 +29,7 @@
                                     <Insets top="4.0" />
                                  </padding>
                               </Label>
-                              <Label id="username_dash" prefHeight="32.0" prefWidth="140.0" styleClass="topbar" stylesheets="@../css/stylesheet.css" text="Mohamed">
+                              <Label id="username_dash" prefHeight="32.0" prefWidth="140.0" styleClass="topbar" stylesheets="@../css/stylesheet.css" text="Brahim">
                                  <font>
                                     <Font name="Poppins SemiBold" size="20.0" />
                                  </font>
@@ -67,7 +67,14 @@
                   </Pane>
                </top>
                <center>
-                  <AnchorPane id="mainContent_admin" fx:id="mainContent_admin" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                  <!--<AnchorPane id="mainContent_admin" fx:id="mainContent_admin" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: red;" BorderPane.alignment="CENTER" />-->
+                  <AnchorPane fx:id="mainContent_admin" style="-fx-background-color: white; -fx-background-radius: 40;" BorderPane.alignment="CENTER">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <BorderPane.margin>
+                        <Insets left="4.0" right="9.0" top="9.0" />
+                     </BorderPane.margin></AnchorPane>
                </center>
             </BorderPane>
          </center>
@@ -121,7 +128,7 @@
                   </HBox>
                   <HBox id="collaborator_btn" alignment="CENTER" prefHeight="47.0" prefWidth="250.0" styleClass="hboxBTN" stylesheets="@../css/stylesheet.css">
                      <children>
-                        <Label stylesheets="@../css/stylesheet.css" text="Collaborators">
+                        <Label stylesheets="@../css/stylesheet.css" text="Organizers">
                            <font>
                               <Font name="Poppins Bold" size="12.0" />
                            </font>
@@ -143,7 +150,7 @@
                            <children>
                               <HBox id="logout-btn" alignment="CENTER" prefHeight="58.0" prefWidth="226.0" styleClass="profil" stylesheets="@../css/stylesheet.css">
                                  <children>
-                                    <Label prefHeight="33.0" prefWidth="81.0" styleClass="deco" stylesheets="@../css/stylesheet.css" text="Déconnexion">
+                                    <Label prefHeight="33.0" prefWidth="97.0" styleClass="deco" stylesheets="@../css/stylesheet.css" text="Déconnexion">
                                        <font>
                                           <Font name="Poppins Bold" size="13.0" />
                                        </font>

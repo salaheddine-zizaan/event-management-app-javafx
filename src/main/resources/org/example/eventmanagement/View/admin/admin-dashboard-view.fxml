@@ -30,7 +30,7 @@
                         </font>
                     </Label>
                <Line endX="100.0" startX="-100.0" stroke="WHITE" strokeLineCap="ROUND" strokeWidth="4.0" />
-                    <Label style="-fx-text-fill: #14213D; -fx-background-color: FCA311; -fx-text-fill: fff; -fx-background-radius: 50;" styleClass="deco" stylesheets="@../css/stylesheet.css" text="35">
+                    <Label style="-fx-text-fill: #14213D; -fx-background-color: FCA311; -fx-text-fill: fff; -fx-background-radius: 50;" styleClass="deco" stylesheets="@../css/stylesheet.css" text="25">
                         <font>
                             <Font name="Poppins Bold" size="26.0" />
                         </font>
@@ -51,7 +51,7 @@
                         </font>
                     </Label>
                <Line endX="100.0" startX="-100.0" stroke="WHITE" strokeLineCap="ROUND" strokeWidth="4.0" />
-                    <Label style="-fx-text-fill: #14213D; -fx-background-color: FCA311; -fx-text-fill: fff; -fx-background-radius: 50;" styleClass="deco" stylesheets="@../css/stylesheet.css" text="22">
+                    <Label style="-fx-text-fill: #14213D; -fx-background-color: FCA311; -fx-text-fill: fff; -fx-background-radius: 50;" styleClass="deco" stylesheets="@../css/stylesheet.css" text="12">
                         <font>
                             <Font name="Poppins Bold" size="26.0" />
                         </font>
@@ -66,13 +66,13 @@
 
                 <!-- Card 3: Collaborators -->
                 <VBox prefHeight="100.0" prefWidth="220.0" spacing="10" style="-fx-background-color: #E5E5E5; -fx-background-radius: 12; -fx-padding: 15;">
-                    <Label style="-fx-text-fill: #14213D;" styleClass="deco" stylesheets="@../css/stylesheet.css" text="Collaborators">
+                    <Label style="-fx-text-fill: #14213D;" styleClass="deco" stylesheets="@../css/stylesheet.css" text="Not Accepted Events">
                         <font>
                             <Font name="Poppins SemiBold" size="14.0" />
                         </font>
                     </Label>
                <Line endX="59.69291305541992" startX="-100.0" stroke="WHITE" strokeLineCap="ROUND" strokeWidth="4.0" />
-                    <Label style="-fx-text-fill: #14213D; -fx-background-color: FCA311; -fx-text-fill: fff; -fx-background-radius: 50;" styleClass="deco" stylesheets="@../css/stylesheet.css" text="10">
+                    <Label style="-fx-text-fill: #14213D; -fx-background-color: FCA311; -fx-text-fill: fff; -fx-background-radius: 50;" styleClass="deco" stylesheets="@../css/stylesheet.css" text="12">
                         <font>
                             <Font name="Poppins Bold" size="26.0" />
                         </font>

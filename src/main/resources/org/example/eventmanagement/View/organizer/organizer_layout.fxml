@@ -68,10 +68,13 @@
                     </top>
                     <center>
                         <!--<AnchorPane id="mainContent_admin" fx:id="mainContent_admin" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: red;" BorderPane.alignment="CENTER" />-->
-                        <AnchorPane fx:id="mainContent_admin"
-                                    style="-fx-background-color: red;"
-                                    BorderPane.alignment="CENTER">
-                        </AnchorPane>
+                        <AnchorPane fx:id="mainContent_admin" style="-fx-background-color: white; -fx-background-radius: 40;" BorderPane.alignment="CENTER">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <BorderPane.margin>
+                        <Insets left="4.0" right="9.0" top="9.0" />
+                     </BorderPane.margin></AnchorPane>
                     </center>
                 </BorderPane>
             </center>
@@ -92,7 +95,7 @@
                         </HBox>
                         <HBox alignment="CENTER_LEFT" prefHeight="34.0" prefWidth="252.0">
                             <children>
-                                <Label stylesheets="@../css/stylesheet.css" text="Organizer OOO : ">
+                                <Label stylesheets="@../css/stylesheet.css" text="Organizer : ">
                                     <font>
                                         <Font name="Poppins Medium" size="12.0" />
                                     </font>

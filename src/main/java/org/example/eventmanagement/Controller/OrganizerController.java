@@ -31,7 +31,7 @@ public class OrganizerController {
         // Set the contentPane for view injections
         SceneManager.setContentPane(mainContent_admin);
         // Load default view (e.g., dashboard)
-        SceneManager.switchView("/org/example/eventmanagement/View/organizer/organizer-profile-view.fxml");
+        SceneManager.switchView("/org/example/eventmanagement/View/organizer/organizer-dashboard-view.fxml");
     }
 
 

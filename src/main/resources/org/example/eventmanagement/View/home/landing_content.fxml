@@ -14,19 +14,18 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="602.0" prefWidth="1000.0" style="-fx-background-color: white; -fx-background-radius: 30;" styleClass="content" stylesheets="@landing_page.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ScrollPane fitToWidth="true" focusTraversable="false" layoutY="1.0" prefHeight="604.0" prefWidth="1014.0" style="-fx-border-color: none; -fx-background-color: white; -fx-border-radius: 50;">
+      <ScrollPane fitToWidth="true" focusTraversable="false" hbarPolicy="NEVER" layoutY="1.0" prefHeight="604.0" prefWidth="1014.0" style="-fx-border-color: none; -fx-background-color: white; -fx-border-radius: 50;">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1602.0" prefWidth="1013.0" style="-fx-background-color: white;">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1602.0" prefWidth="1013.0" style="-fx-background-color: white;" stylesheets="@../css/stylesheet.css">
                <children>
-                  <ImageView fitHeight="627.0" fitWidth="992.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="704.0" fitWidth="1541.0" layoutX="-120.0" layoutY="-18.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../assets/background.png" />
+                        <Image url="@../assets/bg.jpg" />
                      </image>
                   </ImageView>
-                  <VBox layoutY="332.0" prefHeight="270.0" prefWidth="1000.0" style="-fx-background-color: FCA311; -fx-background-radius: 40 40 0 0;">
+                  <VBox layoutX="27.0" layoutY="150.0" prefHeight="270.0" prefWidth="935.0" style="-fx-background-color: FCA311; -fx-background-radius: 40;">
                      <children>
                         <HBox prefHeight="55.0" prefWidth="1006.0">
                            <children>
@@ -42,7 +41,7 @@
                         </HBox>
                         <HBox prefHeight="89.0" prefWidth="1006.0">
                            <children>
-                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Participate &amp; Discover Upcoming Events" wrappingWidth="458.4000244140625">
+                              <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="deco" text="Participate &amp; Discover Upcoming Events" wrappingWidth="458.4000244140625">
                                  <font>
                                     <Font name="Poppins Bold" size="30.0" />
                                  </font>
@@ -55,22 +54,22 @@
                               <Insets top="-20.0" />
                            </padding>
                         </HBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="73.0" prefWidth="920.0" style="-fx-background-color: white; -fx-background-radius: 30;">
+                        <HBox alignment="CENTER_LEFT" prefHeight="59.0" prefWidth="865.0" style="-fx-background-color: white; -fx-background-radius: 30;">
                            <VBox.margin>
                               <Insets left="35.0" right="35.0" top="16.0" />
                            </VBox.margin>
                            <children>
-                              <TextField prefHeight="51.0" prefWidth="710.0" promptText="search for an Event ..." style="-fx-border-color: none; -fx-background-color: white;">
+                              <TextField prefHeight="51.0" prefWidth="698.0" promptText="search for an Event ..." style="-fx-border-color: none; -fx-background-color: white;">
                                  <HBox.margin>
                                     <Insets left="30.0" />
                                  </HBox.margin>
                                  <font>
-                                    <Font name="Poppins Regular" size="21.0" />
+                                    <Font name="Poppins Regular" size="13.0" />
                                  </font>
                               </TextField>
-                              <Button mnemonicParsing="false" prefHeight="44.0" prefWidth="162.0" style="-fx-background-color: FCA311; -fx-border-color: none; -fx-background-radius: 40;" text="Search" textFill="WHITE">
+                              <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="111.0" style="-fx-background-color: FCA311; -fx-border-color: none; -fx-background-radius: 40;" text="Search" textFill="WHITE">
                                  <font>
-                                    <Font name="Poppins Bold" size="20.0" />
+                                    <Font name="Poppins Bold" size="16.0" />
                                  </font>
                               </Button>
                            </children>
@@ -81,7 +80,7 @@
                      <children>
                         <HBox alignment="CENTER" prefHeight="80.0" prefWidth="999.0">
                            <children>
-                              <Text fill="#14213d" strokeType="OUTSIDE" strokeWidth="0.0" text="Featured events!">
+                              <Text fill="#14213d" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="deco" text="Featured events!">
                                  <font>
                                     <Font name="Poppins Bold" size="27.0" />
                                  </font>
@@ -110,7 +109,7 @@
                                     <Pane prefHeight="319.0" prefWidth="312.0" style="-fx-border-color: FCA311; -fx-border-radius: 30;">
                                        <children>
                                           <Line endX="177.00003051757812" endY="-3.814697265625E-5" layoutX="135.0" layoutY="93.0" startX="-135.00001525878906" startY="-3.814697265625E-5" stroke="#fca311" />
-                                          <Text fill="#14213d" layoutX="24.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="title of the event" wrappingWidth="282.4426860809326">
+                                          <Text fill="#14213d" layoutX="24.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="deco" text="title of the event" wrappingWidth="282.4426860809326">
                                              <font>
                                                 <Font name="Poppins Bold" size="20.0" />
                                              </font>
@@ -177,7 +176,7 @@
                                     <Pane prefHeight="319.0" prefWidth="312.0" style="-fx-border-color: FCA311; -fx-border-radius: 30;">
                                        <children>
                                           <Line endX="177.00003051757812" endY="-3.814697265625E-5" layoutX="135.0" layoutY="93.0" startX="-135.00001525878906" startY="-3.814697265625E-5" stroke="#fca311" />
-                                          <Text fill="#14213d" layoutX="24.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="title of the event" wrappingWidth="282.4426860809326">
+                                          <Text fill="#14213d" layoutX="24.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="deco" text="title of the event" wrappingWidth="282.4426860809326">
                                              <font>
                                                 <Font name="Poppins Bold" size="20.0" />
                                              </font>
@@ -244,7 +243,7 @@
                                     <Pane prefHeight="319.0" prefWidth="312.0" style="-fx-border-color: FCA311; -fx-border-radius: 30;">
                                        <children>
                                           <Line endX="177.00003051757812" endY="-3.814697265625E-5" layoutX="135.0" layoutY="93.0" startX="-135.00001525878906" startY="-3.814697265625E-5" stroke="#fca311" />
-                                          <Text fill="#14213d" layoutX="24.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="title of the event" wrappingWidth="282.4426860809326">
+                                          <Text fill="#14213d" layoutX="24.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="deco" text="title of the event" wrappingWidth="282.4426860809326">
                                              <font>
                                                 <Font name="Poppins Bold" size="20.0" />
                                              </font>
@@ -327,7 +326,7 @@
                                     <Pane prefHeight="319.0" prefWidth="312.0" style="-fx-border-color: FCA311; -fx-border-radius: 30;">
                                        <children>
                                           <Line endX="177.00003051757812" endY="-3.814697265625E-5" layoutX="135.0" layoutY="93.0" startX="-135.00001525878906" startY="-3.814697265625E-5" stroke="#fca311" />
-                                          <Text fill="#14213d" layoutX="24.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="title of the event" wrappingWidth="282.4426860809326">
+                                          <Text fill="#14213d" layoutX="24.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="deco" text="title of the event" wrappingWidth="282.4426860809326">
                                              <font>
                                                 <Font name="Poppins Bold" size="20.0" />
                                              </font>
@@ -377,7 +376,7 @@
                                                 <Font name="Poppins Regular" size="18.0" />
                                              </font>
                                           </Text>
-                                          <Button alignment="CENTER" contentDisplay="CENTER" layoutX="32.0" layoutY="250.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="119.0" style="-fx-background-color: fff; -fx-border-color: FCA311; -fx-border-radius: 20; -fx-cursor: hand;" text="Detailssss"  textFill="#fca311">
+                                          <Button alignment="CENTER" contentDisplay="CENTER" layoutX="32.0" layoutY="250.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="119.0" style="-fx-background-color: fff; -fx-border-color: FCA311; -fx-border-radius: 20; -fx-cursor: hand;" text="Detailssss" textFill="#fca311">
                                              <font>
                                                 <Font name="Poppins Bold" size="16.0" />
                                              </font>
@@ -394,7 +393,7 @@
                                     <Pane prefHeight="319.0" prefWidth="312.0" style="-fx-border-color: FCA311; -fx-border-radius: 30;">
                                        <children>
                                           <Line endX="177.00003051757812" endY="-3.814697265625E-5" layoutX="135.0" layoutY="93.0" startX="-135.00001525878906" startY="-3.814697265625E-5" stroke="#fca311" />
-                                          <Text fill="#14213d" layoutX="24.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="title of the event" wrappingWidth="282.4426860809326">
+                                          <Text fill="#14213d" layoutX="24.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="deco" text="title of the event" wrappingWidth="282.4426860809326">
                                              <font>
                                                 <Font name="Poppins Bold" size="20.0" />
                                              </font>
@@ -461,7 +460,7 @@
                                     <Pane prefHeight="319.0" prefWidth="312.0" style="-fx-border-color: FCA311; -fx-border-radius: 30;">
                                        <children>
                                           <Line endX="177.00003051757812" endY="-3.814697265625E-5" layoutX="135.0" layoutY="93.0" startX="-135.00001525878906" startY="-3.814697265625E-5" stroke="#fca311" />
-                                          <Text fill="#14213d" layoutX="24.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="title of the event" wrappingWidth="282.4426860809326">
+                                          <Text fill="#14213d" layoutX="24.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="deco" text="title of the event" wrappingWidth="282.4426860809326">
                                              <font>
                                                 <Font name="Poppins Bold" size="20.0" />
                                              </font>
