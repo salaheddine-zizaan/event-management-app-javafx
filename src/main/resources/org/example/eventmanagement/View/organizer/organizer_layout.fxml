@@ -67,7 +67,11 @@
                         </Pane>
                     </top>
                     <center>
-                        <Pane id="mainContent_admin" fx:id="mainContent_admin" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                        <!--<AnchorPane id="mainContent_admin" fx:id="mainContent_admin" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: red;" BorderPane.alignment="CENTER" />-->
+                        <AnchorPane fx:id="mainContent_admin"
+                                    style="-fx-background-color: red;"
+                                    BorderPane.alignment="CENTER">
+                        </AnchorPane>
                     </center>
                 </BorderPane>
             </center>
@@ -143,7 +147,7 @@
                                     <children>
                                         <HBox id="logout-btn" alignment="CENTER" prefHeight="58.0" prefWidth="226.0" styleClass="profil" stylesheets="@../css/stylesheet.css">
                                             <children>
-                                                <Label prefHeight="33.0" prefWidth="81.0" styleClass="deco" stylesheets="@../css/stylesheet.css" text="Déconnexion">
+                                                <Label prefHeight="33.0" prefWidth="97.0" styleClass="deco" stylesheets="@../css/stylesheet.css" text="Déconnexion">
                                                     <font>
                                                         <Font name="Poppins Bold" size="13.0" />
                                                     </font>

@@ -1,5 +1,6 @@
 package org.example.eventmanagement.utils;
 
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.fxml.FXMLLoader;
@@ -13,13 +14,13 @@ import java.net.URL;
 
 public class SceneManager {
     private static Stage primaryStage;
-    private static Pane contentPane;
+    private static AnchorPane contentPane;
 
     public static void setStage(Stage stage) {
         primaryStage = stage;
     }
 
-    public static void setContentPane(Pane pane) {
+    public static void setContentPane(AnchorPane pane) {
         contentPane = pane;
     }
 
@@ -63,7 +64,19 @@ public class SceneManager {
         try {
             FXMLLoader loader = new FXMLLoader(SceneManager.class.getResource(fxml));
             Parent view = loader.load();
+
+            contentPane.getChildren().clear();
+            contentPane.getChildren().add(view);
+
+            // Anchor the view to all edges
+            AnchorPane.setTopAnchor(view, 0.0);
+            AnchorPane.setBottomAnchor(view, 0.0);
+            AnchorPane.setLeftAnchor(view, 0.0);
+            AnchorPane.setRightAnchor(view, 0.0);
+
+/*
             contentPane.getChildren().setAll(view);
+*/
         } catch (IOException e) {
             System.out.println("Error: view switch");
             e.printStackTrace();

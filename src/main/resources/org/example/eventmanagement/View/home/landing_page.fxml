@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane styleClass="root" prefHeight="700.0" prefWidth="1030.0" stylesheets="@landing_page.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.eventmanagement.Controller.landingPageController">
+    <children>
+        <BorderPane layoutX="-4.0" prefHeight="469.0" prefWidth="991.0" style="-fx-background-color: #efefe4;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <center>
+                <BorderPane prefHeight="498.0" prefWidth="583.0" BorderPane.alignment="CENTER">
+                    <top>
+                        <Pane prefHeight="75.0" prefWidth="1098.0" style="-fx-background-color: FCA311; -fx-background-radius: 20;" styleClass="topbar" stylesheets="@../css/stylesheet.css" BorderPane.alignment="CENTER">
+                            <children>
+                                <HBox alignment="CENTER_LEFT" layoutX="14.0" layoutY="11.0" prefHeight="56.0" prefWidth="214.0" stylesheets="@../css/stylesheet.css">
+                           <children>
+                              <ImageView fitHeight="59.0" fitWidth="157.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/logo.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                                </HBox>
+                                <HBox id="profile_btn" alignment="CENTER_RIGHT" layoutX="942.0" layoutY="23.0" prefHeight="35.0" prefWidth="62.0" styleClass="profileBTN" stylesheets="@../css/stylesheet.css">
+                                    <children>
+                                        <Label prefHeight="24.0" prefWidth="73.0" style="-fx-text-fill: white;" stylesheets="@../css/stylesheet.css" text="Login" textFill="WHITE">
+                                            <font>
+                                                <Font name="Poppins Bold" size="17.0" />
+                                            </font>
+                                        </Label>
+                                    </children>
+                                </HBox>
+                            </children>
+                            <BorderPane.margin>
+                                <Insets left="9.0" right="9.0" top="11.0" />
+                            </BorderPane.margin>
+                        </Pane>
+                    </top>
+                    <center>
+                        <AnchorPane  id="mainContent_admin" fx:id="mainContent_admin" prefHeight="200.0" prefWidth="200.0" style="-fx-background-radius: 20; -fx-background-color: white;" BorderPane.alignment="CENTER">
+                     <BorderPane.margin>
+                        <Insets bottom="9.0" left="9.0" right="9.0" top="11.0" />
+                     </BorderPane.margin></AnchorPane>
+                    </center>
+                </BorderPane>
+            </center>
+        </BorderPane>
+    </children>
+</AnchorPane>
