@@ -1,4 +1,5 @@
 package org.example.eventmanagement.Controller.Auth;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import org.example.eventmanagement.utils.DatabaseConnection;
@@ -8,20 +9,29 @@ import java.sql.*;
 
 public class RegisterController {
 
-
     @FXML private TextField firstNameField;
     @FXML private TextField lastNameField;
     @FXML private TextField emailField;
     @FXML private TextField userNameField;
     @FXML private TextField phoneField;
     @FXML private PasswordField passwordField;
-    @FXML private ComboBox<String> roleComboBox;
     @FXML private PasswordField confirmPasswordField;
+    @FXML private PasswordField companynamefield;
+    @FXML private PasswordField companyfieldfield;
     @FXML private Label statusLabel;
 
+    @FXML private RadioButton radioorganizer;
+    @FXML private RadioButton userorganizer;
+    @FXML private ToggleGroup role;
+
+    private String selectedRole = null;
+
     @FXML
-    public void initialize() {
-        roleComboBox.getItems().addAll( "organizer", "user", "admin");
+    public void handleRadioButtonAction() {
+        RadioButton selected = (RadioButton) role.getSelectedToggle();
+        if (selected != null) {
+            selectedRole = selected.getText();
+        }
     }
 
     @FXML
@@ -32,19 +42,21 @@ public class RegisterController {
         String username = userNameField.getText();
         String phone = phoneField.getText();
         String password = passwordField.getText();
-        String role = roleComboBox.getValue();
+        String confirmPassword = confirmPasswordField.getText();
 
-        if (firstname.isEmpty() || email.isEmpty() || password.isEmpty() || role == null) {
+        if (firstname.isEmpty() || email.isEmpty() || password.isEmpty() || selectedRole == null) {
             statusLabel.setText("All fields are required.");
+            return;
+        }
+
+        if (!password.equals(confirmPassword)) {
+            statusLabel.setText("Passwords do not match.");
             return;
         }
 
         String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
 
-
-
         try (Connection conn = DatabaseConnection.getConnection()) {
-            // Insert into person
             String insertPerson = "INSERT INTO person (firstname, lastname, email, phone, password, username, role) VALUES (?, ?, ?, ?, ?, ?, ?) RETURNING id_person";
             PreparedStatement ps = conn.prepareStatement(insertPerson);
             ps.setString(1, firstname);
@@ -53,13 +65,13 @@ public class RegisterController {
             ps.setString(4, phone);
             ps.setString(5, hashedPassword);
             ps.setString(6, username);
-            ps.setString(7, role);
+            ps.setString(7, selectedRole);
 
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 int personId = rs.getInt("id_person");
 
-                switch (role) {
+                switch (selectedRole) {
                     case "organizer" -> registerOrganizer(conn, personId);
                     case "user" -> registerUser(conn, personId);
                 }
@@ -74,11 +86,14 @@ public class RegisterController {
     }
 
     private void registerOrganizer(Connection conn, int personId) throws SQLException {
+        String companyName = companynamefield.getText();
+        String companyField = companyfieldfield.getText();
+
         String sql = "INSERT INTO organizer (id_person, name, field) VALUES (?, ?, ?)";
         PreparedStatement ps = conn.prepareStatement(sql);
         ps.setInt(1, personId);
-        ps.setString(2, "Default Name"); // You can ask for this in your UI
-        ps.setString(3, "General");
+        ps.setString(2, companyName.isEmpty() ? "N/A" : companyName);
+        ps.setString(3, companyField.isEmpty() ? "General" : companyField);
         ps.executeUpdate();
     }
 
