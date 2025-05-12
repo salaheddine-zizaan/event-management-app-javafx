@@ -528,6 +528,7 @@
                         <VBox fx:id="eventListContainer" spacing="20" alignment="TOP_CENTER" style="-fx-padding: 20;"/>
                      </ScrollPane>
 
+
                   </VBox>
                </children>
             </AnchorPane>
