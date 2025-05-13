@@ -15,8 +15,8 @@ public class HelloApplication extends Application {
 /*
         SceneManager.switchScene("/org/example/eventmanagement/View/Auth/login-view.fxml");
 */
-        SceneManager.switchScene("/org/example/eventmanagement/View/Auth/register-view.fxml");
-        /*SceneManager.switchScene("/org/example/eventmanagement/View/home/landing_page.fxml");*/
+        /*SceneManager.switchScene("/org/example/eventmanagement/View/Auth/register-view.fxml");*/
+        SceneManager.switchScene("/org/example/eventmanagement/View/home/landing_page.fxml");
     }
 
     @Override

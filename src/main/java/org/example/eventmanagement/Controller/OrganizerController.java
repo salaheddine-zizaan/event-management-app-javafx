@@ -1,8 +1,10 @@
 package org.example.eventmanagement.Controller;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
@@ -44,6 +46,22 @@ public class OrganizerController {
     @FXML
     private void showUsers() {
         SceneManager.switchView("/org/example/eventmanagement/View/organizer/testOrg.fxml");
+    }
+
+    public void toDashboard(MouseEvent mouseEvent) {
+        SceneManager.switchView("/org/example/eventmanagement/View/organizer/organizer-dashboard-view.fxml");
+    }
+
+    public void toCollaborator(MouseEvent mouseEvent) {
+        SceneManager.switchView("/org/example/eventmanagement/View/organizer/organizer_collaborators.fxml");
+    }
+
+    public void toEvents(MouseEvent mouseEvent) {
+        SceneManager.switchView("/org/example/eventmanagement/View/organizer/organizer_event_list.fxml");
+    }
+
+    public void AddEventLink(ActionEvent actionEvent) {
+        SceneManager.switchView("/org/example/eventmanagement/View/organizer/add_event.fxml");
     }
 }
 

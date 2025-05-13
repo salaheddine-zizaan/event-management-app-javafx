@@ -29,7 +29,7 @@
                                 </HBox>
                                 <HBox id="profile_btn" alignment="CENTER_RIGHT" layoutX="942.0" layoutY="23.0" prefHeight="35.0" prefWidth="62.0" styleClass="deco" stylesheets="@../css/stylesheet.css">
                                     <children>
-                                        <Label prefHeight="24.0" prefWidth="73.0" style="-fx-text-fill: white;" stylesheets="@../css/stylesheet.css" text="Login" textFill="WHITE">
+                                        <Label id="loginBTN" fx:id="loginBTN" onMouseClicked="#toLogin" prefHeight="24.0" prefWidth="73.0" style="-fx-text-fill: white;" styleClass="deco" stylesheets="@../css/stylesheet.css" text="Login" textFill="WHITE">
                                             <font>
                                                 <Font name="Poppins Bold" size="17.0" />
                                             </font>

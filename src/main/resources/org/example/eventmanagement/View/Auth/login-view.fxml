@@ -41,7 +41,7 @@
                <font>
                   <Font name="Poppins Regular" size="11.0" />
                </font></Text>
-            <Button fx:id="loginButton1" layoutX="30.0" layoutY="251.0" onAction="#handleLogin" prefHeight="30.0" prefWidth="240.0" styleClass="registerBTN" text="Créer un Compte" />
+            <Button fx:id="registerBtn" layoutX="30.0" layoutY="251.0" onAction="#toRegister" prefHeight="30.0" prefWidth="240.0" styleClass="registerBTN" text="Créer un Compte" />
 
          </children>
       </AnchorPane>

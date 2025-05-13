@@ -20,7 +20,7 @@
                             <font>
                                 <Font name="Poppins Bold" size="12.0" />
                             </font></Button>
-                        <Label layoutX="23.0" layoutY="11.0" prefHeight="58.0" prefWidth="192.0" style="-fx-text-fill: fca311;" text="Collaborators" textFill="#fca311">
+                        <Label layoutX="23.0" layoutY="11.0" prefHeight="58.0" prefWidth="192.0" style="-fx-text-fill: fca311;" styleClass="deco" stylesheets="@../css/stylesheet.css" text="Collaborators" textFill="#fca311">
                             <font>
                                 <Font name="Poppins Bold" size="22.0" />
                             </font></Label>
@@ -36,7 +36,7 @@
                                             <children>
                                                 <VBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="175.0">
                                                     <children>
-                                                        <Label prefHeight="26.0" prefWidth="175.0" stylesheets="@../css/stylesheet.css" text="Collaborator 1" textFill="#14213d">
+                                                        <Label prefHeight="26.0" prefWidth="175.0" styleClass="deco" stylesheets="@../css/stylesheet.css" text="Collaborator 1" textFill="#14213d">
                                                             <font>
                                                                 <Font name="Poppins Bold" size="14.0" />
                                                             </font>
@@ -93,7 +93,7 @@
                                  <children>
                                     <VBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="175.0">
                                        <children>
-                                          <Label prefHeight="26.0" prefWidth="175.0" stylesheets="@../css/stylesheet.css" text="Collaborator 2" textFill="#14213d">
+                                          <Label prefHeight="26.0" prefWidth="175.0" styleClass="deco" stylesheets="@../css/stylesheet.css" text="Collaborator 2" textFill="#14213d">
                                              <font>
                                                 <Font name="Poppins Bold" size="14.0" />
                                              </font>
@@ -151,7 +151,7 @@
                                  <children>
                                     <VBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="175.0">
                                        <children>
-                                          <Label prefHeight="26.0" prefWidth="175.0" stylesheets="@../css/stylesheet.css" text="Collaborator 3" textFill="#14213d">
+                                          <Label prefHeight="26.0" prefWidth="175.0" styleClass="deco" stylesheets="@../css/stylesheet.css" text="Collaborator 3" textFill="#14213d">
                                              <font>
                                                 <Font name="Poppins Bold" size="14.0" />
                                              </font>
@@ -209,7 +209,7 @@
                                  <children>
                                     <VBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="175.0">
                                        <children>
-                                          <Label prefHeight="26.0" prefWidth="175.0" stylesheets="@../css/stylesheet.css" text="Collaborator " textFill="#14213d">
+                                          <Label prefHeight="26.0" prefWidth="175.0" styleClass="deco" stylesheets="@../css/stylesheet.css" text="Collaborator " textFill="#14213d">
                                              <font>
                                                 <Font name="Poppins Bold" size="14.0" />
                                              </font>

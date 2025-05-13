@@ -72,7 +72,7 @@ public class LoginController {
                 case "user" -> {
                     User user = UserDAO.getByIdPerson(person.getIdPerson());
                     Session.getInstance().setLoggedInUser(user);
-                    SceneManager.switchScene("/org/example/eventmanagement/View/user/user_layout.fxml");
+                    SceneManager.switchScene("/org/example/eventmanagement/View/user/user_layout_view.fxml");
                 }
                 default -> statusLabel.setText("Unknown role: " + role);
             }
@@ -81,6 +81,10 @@ public class LoginController {
             e.printStackTrace();
             statusLabel.setText("Login error: " + e.getMessage());
         }
+    }
+
+    public void toRegister() {
+        SceneManager.switchScene("/org/example/eventmanagement/View/Auth/register-view.fxml");
     }
 
 /*    private void loadDashboard(String fxml) {
