@@ -1,7 +1,6 @@
 package org.example.eventmanagement.Controller.Auth;
 
 import javafx.fxml.FXML;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
@@ -10,9 +9,6 @@ import org.example.eventmanagement.utils.SceneManager;
 import org.mindrot.jbcrypt.BCrypt;
 
 import java.sql.*;
-
-import static org.example.eventmanagement.DAO.OrganizerDAO.insertOrganizer;
-import static org.example.eventmanagement.DAO.UserDAO.insertUser;
 
 public class RegisterController {
 
@@ -23,13 +19,14 @@ public class RegisterController {
     @FXML private TextField phoneField;
     @FXML private PasswordField passwordField;
     @FXML private PasswordField confirmPasswordField;
-    @FXML private TextField companynamefield;
-    @FXML private TextField companyfieldfield;
+    @FXML private PasswordField companynamefield;
+    @FXML private PasswordField companyfieldfield;
     @FXML private Label statusLabel;
     @FXML private Text register_success;
     @FXML private Pane register_success_pane;
     @FXML private Text register_failed;
     @FXML private Pane register_failed_pane;
+
 
     @FXML private RadioButton radioorganizer;
     @FXML private RadioButton userorganizer;
@@ -57,17 +54,16 @@ public class RegisterController {
 
         if (firstname.isEmpty() || email.isEmpty() || password.isEmpty() || selectedRole == null) {
             statusLabel.setText("All fields are required.");
-            register_failed.setText("Please fill in all fields.");
-            register_failed_pane.setVisible(true);
-            register_failed.setVisible(true);
+            register_failed.visibleProperty().set(true);
+            register_failed.setText("Please fill in all fields");
             return;
         }
 
         if (!password.equals(confirmPassword)) {
             statusLabel.setText("Passwords do not match.");
+            register_failed_pane.visibleProperty().set(true);
+            register_failed.visibleProperty().set(true);
             register_failed.setText("Passwords do not match.");
-            register_failed_pane.setVisible(true);
-            register_failed.setVisible(true);
             return;
         }
 
@@ -88,51 +84,52 @@ public class RegisterController {
             if (rs.next()) {
                 int personId = rs.getInt("id_person");
 
-                if (selectedRole.equals("user")) {
-                    insertUser("address", personId);
-                } else if (selectedRole.equals("organizer")) {
-                    insertOrganizer(personId, "company name", "company field");
+                switch (selectedRole) {
+                    case "organizer" -> registerOrganizer(conn, personId);
+                    case "user" -> registerUser(conn, personId);
                 }
 
+                register_success.visibleProperty().set(true);
+                register_success_pane.visibleProperty().set(true);
                 register_success.setText("Registration successful!");
-                register_success_pane.setVisible(true);
-                register_success.setVisible(true);
-
                 statusLabel.setText("Registration successful!");
-                // Wait and switch to login screen
-                Thread.sleep(4000);
+                wait(4);
                 toLogin();
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
             statusLabel.setText("Registration failed. Email may already exist.");
+            register_failed_pane.visibleProperty().set(true);
+            register_failed.visibleProperty().set(true);
             register_failed.setText("Registration failed. Email may already exist.");
-            register_failed_pane.setVisible(true);
-            register_failed.setVisible(true);
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         }
     }
 
-    @FXML
-    public void toLogin() {
+    private void registerOrganizer(Connection conn, int personId) throws SQLException {
+        String companyName = companynamefield.getText();
+        String companyField = companyfieldfield.getText();
+
+        String sql = "INSERT INTO organizer (id_person, name, field) VALUES (?, ?, ?)";
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setInt(1, personId);
+        ps.setString(2, companyName.isEmpty() ? "N/A" : companyName);
+        ps.setString(3, companyField.isEmpty() ? "General" : companyField);
+        ps.executeUpdate();
+    }
+
+    private void registerUser(Connection conn, int personId) throws SQLException {
+        String sql = "INSERT INTO \"user\" (id_person, address) VALUES (?, ?)";
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setInt(1, personId);
+        ps.setString(2, "N/A");
+        ps.executeUpdate();
+    }
+
+    public void toLogin(){
         SceneManager.switchScene("/org/example/eventmanagement/View/Auth/login-view.fxml");
     }
 
-    public TextField getCompanynamefield() {
-        return companynamefield;
-    }
-
-    public void setCompanynamefield(TextField companynamefield) {
-        this.companynamefield = companynamefield;
-    }
-
-    public TextField getCompanyfieldfield() {
-        return companyfieldfield;
-    }
-
-    public void setCompanyfieldfield(TextField companyfieldfield) {
-        this.companyfieldfield = companyfieldfield;
-    }
 }
