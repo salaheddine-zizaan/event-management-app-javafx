@@ -63,6 +63,10 @@ public class OrganizerController {
     public void AddEventLink(ActionEvent actionEvent) {
         SceneManager.switchView("/org/example/eventmanagement/View/organizer/add_event.fxml");
     }
+
+    public void toProfile(MouseEvent mouseEvent) {
+        SceneManager.switchView("/org/example/eventmanagement/View/organizer/organizer_profile.fxml");
+    }
 }
 
 
