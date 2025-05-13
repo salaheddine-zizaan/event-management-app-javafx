@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+
+    <children>
+        <ScrollPane hbarPolicy="NEVER" layoutX="-4.0" prefHeight="600.0" prefWidth="806.0" style="-fx-background-color: white; -fx-border-color: white;" vbarPolicy="NEVER">
+            <content>
+                <AnchorPane prefHeight="594.0" prefWidth="802.0" style="-fx-background-color: white;">
+                    <children>
+                        <Button layoutX="641.0" layoutY="32.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="134.0" style="-fx-background-color: #fca311; -fx-cursor: hand;" text="Add Collaborator" textFill="WHITE">
+                            <font>
+                                <Font name="Poppins Bold" size="12.0" />
+                            </font></Button>
+                        <Label layoutX="23.0" layoutY="11.0" prefHeight="58.0" prefWidth="192.0" style="-fx-text-fill: fca311;" text="Collaborators" textFill="#fca311">
+                            <font>
+                                <Font name="Poppins Bold" size="22.0" />
+                            </font></Label>
+                        <Label layoutX="23.0" layoutY="84.0" opacity="0.72" styleClass="txt2" stylesheets="@../css/stylesheet.css" text="Liste of collaborators :">
+                            <font>
+                                <Font name="Poppins Regular" size="12.0" />
+                            </font></Label>
+                        <ScrollPane hbarPolicy="NEVER" layoutX="22.0" layoutY="108.0" prefHeight="467.0" prefWidth="760.0" style="-fx-border-color: none; -fx-background-color: white;">
+                            <content>
+                                <AnchorPane prefHeight="450.0" prefWidth="762.0" style="-fx-background-color: white;">
+                                    <children>
+                                        <HBox id="event_row" alignment="CENTER_LEFT" layoutX="7.0" layoutY="4.0" prefHeight="54.0" prefWidth="734.0" style="-fx-background-color: E5E5E5; -fx-background-radius: 15;">
+                                            <children>
+                                                <VBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="175.0">
+                                                    <children>
+                                                        <Label prefHeight="26.0" prefWidth="175.0" stylesheets="@../css/stylesheet.css" text="Collaborator 1" textFill="#14213d">
+                                                            <font>
+                                                                <Font name="Poppins Bold" size="14.0" />
+                                                            </font>
+                                                            <VBox.margin>
+                                                                <Insets left="12.0" />
+                                                            </VBox.margin>
+                                                        </Label>
+                                                    </children>
+                                                </VBox>
+                                                <VBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="171.0">
+                                                    <children>
+                                                        <Label prefHeight="20.0" prefWidth="162.0" text="Event name" textFill="#14213d">
+                                             <font>
+                                                <Font name="Poppins Bold" size="14.0" />
+                                             </font></Label>
+                                                    </children>
+                                                </VBox>
+                                                <VBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="58.0">
+                                                    <children>
+                                                        <Label text="Kénitra" textFill="#14213d" />
+                                                    </children>
+                                                </VBox>
+                                    <VBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="83.0">
+                                       <children>
+                                          <Label text="10/12/2025" textFill="#14213d" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="91.0">
+                                       <children>
+                                          <Label style="-fx-background-color: white; -fx-background-radius: 10; -fx-cursor: hand;" text="accepted" textFill="#79cc6b">
+                                             <padding>
+                                                <Insets bottom="4.0" left="10.0" right="10.0" top="4.0" />
+                                             </padding>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <HBox alignment="CENTER" prefHeight="54.0" prefWidth="147.0" spacing="7.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: white; -fx-cursor: hand;" text="Details" textFill="#fca311">
+                                             <font>
+                                                <Font name="Poppins Regular" size="11.0" />
+                                             </font>
+                                          </Button>
+                                          <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" style="-fx-background-color: white; -fx-cursor: hand;" text="Delete" textFill="#fca311">
+                                             <font>
+                                                <Font name="Poppins Regular" size="11.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                            </children>
+                                        </HBox>
+                              <HBox id="event_row" alignment="CENTER_LEFT" layoutX="7.0" layoutY="63.0" prefHeight="54.0" prefWidth="734.0" style="-fx-background-color: E5E5E5; -fx-background-radius: 15;">
+                                 <children>
+                                    <VBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="175.0">
+                                       <children>
+                                          <Label prefHeight="26.0" prefWidth="175.0" stylesheets="@../css/stylesheet.css" text="Collaborator 2" textFill="#14213d">
+                                             <font>
+                                                <Font name="Poppins Bold" size="14.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets left="12.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="171.0">
+                                       <children>
+                                          <Label prefHeight="20.0" prefWidth="162.0" text="Event name" textFill="#14213d">
+                                             <font>
+                                                <Font name="Poppins Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="58.0">
+                                       <children>
+                                          <Label text="Agadir" textFill="#14213d" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="83.0">
+                                       <children>
+                                          <Label text="10/12/2025" textFill="#14213d" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="91.0">
+                                       <children>
+                                          <Label style="-fx-background-color: white; -fx-background-radius: 10; -fx-cursor: hand;" text="coming" textFill="#fa8111">
+                                             <padding>
+                                                <Insets bottom="4.0" left="10.0" right="10.0" top="4.0" />
+                                             </padding>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <HBox alignment="CENTER" prefHeight="54.0" prefWidth="147.0" spacing="7.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: white; -fx-cursor: hand;" text="Details" textFill="#fca311">
+                                             <font>
+                                                <Font name="Poppins Regular" size="11.0" />
+                                             </font>
+                                          </Button>
+                                          <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" style="-fx-background-color: white; -fx-cursor: hand;" text="Delete" textFill="#fca311">
+                                             <font>
+                                                <Font name="Poppins Regular" size="11.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox id="event_row" alignment="CENTER_LEFT" layoutX="7.0" layoutY="122.0" prefHeight="54.0" prefWidth="734.0" style="-fx-background-color: E5E5E5; -fx-background-radius: 15;">
+                                 <children>
+                                    <VBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="175.0">
+                                       <children>
+                                          <Label prefHeight="26.0" prefWidth="175.0" stylesheets="@../css/stylesheet.css" text="Collaborator 3" textFill="#14213d">
+                                             <font>
+                                                <Font name="Poppins Bold" size="14.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets left="12.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="171.0">
+                                       <children>
+                                          <Label prefHeight="20.0" prefWidth="162.0" text="Event name" textFill="#14213d">
+                                             <font>
+                                                <Font name="Poppins Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="58.0">
+                                       <children>
+                                          <Label text="Kénitra" textFill="#14213d" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="83.0">
+                                       <children>
+                                          <Label text="10/12/2025" textFill="#14213d" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="91.0">
+                                       <children>
+                                          <Label style="-fx-background-color: white; -fx-background-radius: 10; -fx-cursor: hand;" text="accepted" textFill="#79cc6b">
+                                             <padding>
+                                                <Insets bottom="4.0" left="10.0" right="10.0" top="4.0" />
+                                             </padding>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <HBox alignment="CENTER" prefHeight="54.0" prefWidth="147.0" spacing="7.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: white; -fx-cursor: hand;" text="Details" textFill="#fca311">
+                                             <font>
+                                                <Font name="Poppins Regular" size="11.0" />
+                                             </font>
+                                          </Button>
+                                          <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" style="-fx-background-color: white; -fx-cursor: hand;" text="Delete" textFill="#fca311">
+                                             <font>
+                                                <Font name="Poppins Regular" size="11.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox id="event_row" alignment="CENTER_LEFT" layoutX="7.0" layoutY="183.0" prefHeight="54.0" prefWidth="734.0" style="-fx-background-color: E5E5E5; -fx-background-radius: 15;">
+                                 <children>
+                                    <VBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="175.0">
+                                       <children>
+                                          <Label prefHeight="26.0" prefWidth="175.0" stylesheets="@../css/stylesheet.css" text="Collaborator " textFill="#14213d">
+                                             <font>
+                                                <Font name="Poppins Bold" size="14.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets left="12.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="171.0">
+                                       <children>
+                                          <Label prefHeight="20.0" prefWidth="162.0" text="Event name" textFill="#14213d">
+                                             <font>
+                                                <Font name="Poppins Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="58.0">
+                                       <children>
+                                          <Label text="Kénitra" textFill="#14213d" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="83.0">
+                                       <children>
+                                          <Label text="10/12/2025" textFill="#14213d" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="91.0">
+                                       <children>
+                                          <Label style="-fx-background-color: white; -fx-background-radius: 10; -fx-cursor: hand;" text="rejected" textFill="#f41313">
+                                             <padding>
+                                                <Insets bottom="4.0" left="10.0" right="10.0" top="4.0" />
+                                             </padding>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <HBox alignment="CENTER" prefHeight="54.0" prefWidth="147.0" spacing="7.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: white; -fx-cursor: hand;" text="Details" textFill="#fca311">
+                                             <font>
+                                                <Font name="Poppins Regular" size="11.0" />
+                                             </font>
+                                          </Button>
+                                          <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" style="-fx-background-color: white; -fx-cursor: hand;" text="Delete" textFill="#fca311">
+                                             <font>
+                                                <Font name="Poppins Regular" size="11.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </ScrollPane>
+                    </children>
+                </AnchorPane>
+            </content>
+        </ScrollPane>
+
+    </children>
+</AnchorPane>

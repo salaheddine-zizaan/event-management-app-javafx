@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane styleClass="root" prefHeight="700.0" prefWidth="1030.0" stylesheets="@landing_page.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.eventmanagement.Controller.landingPageController">
+<AnchorPane prefHeight="700.0" prefWidth="1030.0" styleClass="root" stylesheets="@landing_page.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.eventmanagement.Controller.landingPageController">
     <children>
         <BorderPane layoutX="-4.0" prefHeight="469.0" prefWidth="991.0" style="-fx-background-color: #efefe4;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <center>
@@ -27,7 +27,7 @@
                               </ImageView>
                            </children>
                                 </HBox>
-                                <HBox id="profile_btn" alignment="CENTER_RIGHT" layoutX="942.0" layoutY="23.0" prefHeight="35.0" prefWidth="62.0" styleClass="profileBTN" stylesheets="@../css/stylesheet.css">
+                                <HBox id="profile_btn" alignment="CENTER_RIGHT" layoutX="942.0" layoutY="23.0" prefHeight="35.0" prefWidth="62.0" styleClass="deco" stylesheets="@../css/stylesheet.css">
                                     <children>
                                         <Label prefHeight="24.0" prefWidth="73.0" style="-fx-text-fill: white;" stylesheets="@../css/stylesheet.css" text="Login" textFill="WHITE">
                                             <font>
@@ -43,7 +43,7 @@
                         </Pane>
                     </top>
                     <center>
-                        <AnchorPane  id="mainContent_admin" fx:id="mainContent_admin" prefHeight="200.0" prefWidth="200.0" style="-fx-background-radius: 20; -fx-background-color: white;" BorderPane.alignment="CENTER">
+                        <AnchorPane id="mainContent_admin" fx:id="mainContent_admin" prefHeight="200.0" prefWidth="200.0" style="-fx-background-radius: 20; -fx-background-color: white;" BorderPane.alignment="CENTER">
                      <BorderPane.margin>
                         <Insets bottom="9.0" left="9.0" right="9.0" top="11.0" />
                      </BorderPane.margin></AnchorPane>

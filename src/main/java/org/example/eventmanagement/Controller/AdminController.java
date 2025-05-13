@@ -17,7 +17,7 @@ public class AdminController {
         // Set the contentPane for view injections
         SceneManager.setContentPane(mainContent_admin);
         // Load default view (e.g., dashboard)
-        SceneManager.switchView("/org/example/eventmanagement/View/admin/test.fxml");
+        SceneManager.switchView("/org/example/eventmanagement/View/admin/event_liste.fxml");
     }
 
     // Navigation methods to switch views within the admin layout

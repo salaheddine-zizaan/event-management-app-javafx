@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+
+    <children>
+        <Label layoutX="26.0" layoutY="19.0" prefHeight="58.0" prefWidth="192.0" style="-fx-text-fill: #fca311;" text="Add Event">
+            <font>
+                <Font name="Poppins Bold" size="22.0" />
+            </font>
+        </Label>
+
+        <!-- Form Fields -->
+        <GridPane hgap="15" layoutX="82.0" layoutY="71.0" prefHeight="463.0" prefWidth="638.0" vgap="15">
+            <columnConstraints>
+                <ColumnConstraints minWidth="150" />
+                <ColumnConstraints minWidth="250" />
+            </columnConstraints>
+
+            <!-- Event Title -->
+            <Label text="Event Title:">
+                <font>
+                    <Font name="Poppins Bold" size="12.0" />
+                </font></Label>
+            <TextField fx:id="eventTitleField" prefHeight="14.0" prefWidth="481.0" promptText="Enter title" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                <font>
+                    <Font name="Poppins Regular" size="12.0" />
+                </font></TextField>
+
+            <!-- Description -->
+            <Label text="Description:" GridPane.rowIndex="1">
+                <font>
+                    <Font name="Poppins Bold" size="12.0" />
+                </font></Label>
+            <TextArea fx:id="descriptionField" prefRowCount="3" promptText="Enter description" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                <font>
+                    <Font name="Poppins Regular" size="12.0" />
+                </font></TextArea>
+
+            <!-- Country -->
+            <Label text="Country:" GridPane.rowIndex="2">
+                <font>
+                    <Font name="Poppins Bold" size="12.0" />
+                </font></Label>
+            <TextField fx:id="countryField" promptText="Enter country" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                <font>
+                    <Font name="Poppins Regular" size="12.0" />
+                </font></TextField>
+
+            <!-- City -->
+            <Label text="City:" GridPane.rowIndex="3">
+                <font>
+                    <Font name="Poppins Bold" size="12.0" />
+                </font></Label>
+            <TextField fx:id="cityField" promptText="Enter city" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                <font>
+                    <Font name="Poppins Regular" size="12.0" />
+                </font></TextField>
+
+            <!-- Location -->
+            <Label text="Location:" GridPane.rowIndex="4">
+                <font>
+                    <Font name="Poppins Bold" size="12.0" />
+                </font></Label>
+            <TextField fx:id="locationField" promptText="Enter exact location" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                <font>
+                    <Font name="Poppins Regular" size="12.0" />
+                </font></TextField>
+
+            <!-- Date (optional) -->
+            <Label text="Date :" GridPane.rowIndex="5">
+                <font>
+                    <Font name="Poppins Bold" size="12.0" />
+                </font></Label>
+            <DatePicker fx:id="datePicker" promptText="choose a date" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+
+            <!-- Start Time -->
+            <Label text="Start Time:" GridPane.rowIndex="6">
+                <font>
+                    <Font name="Poppins Bold" size="12.0" />
+                </font></Label>
+            <TextField fx:id="startTimeField" promptText="HH:mm" GridPane.columnIndex="1" GridPane.rowIndex="6">
+                <font>
+                    <Font name="Poppins Regular" size="12.0" />
+                </font></TextField>
+
+            <!-- End Time -->
+            <Label text="End Time:" GridPane.columnIndex="0" GridPane.rowIndex="7">
+                <font>
+                    <Font name="Poppins Bold" size="12.0" />
+                </font></Label>
+            <TextField fx:id="endTimeField" promptText="HH:mm" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                <font>
+                    <Font name="Poppins Regular" size="12.0" />
+                </font></TextField>
+
+            <!-- Capacity -->
+            <Label text="Capacity:" GridPane.columnIndex="0" GridPane.rowIndex="8">
+                <font>
+                    <Font name="Poppins Bold" size="12.0" />
+                </font></Label>
+            <TextField fx:id="capacityField" promptText="e.g., 100" GridPane.columnIndex="1" GridPane.rowIndex="8">
+                <font>
+                    <Font name="Poppins Regular" size="12.0" />
+                </font></TextField>
+
+            <!-- Price -->
+            <Label text="Price (DH):" GridPane.columnIndex="0" GridPane.rowIndex="9">
+                <font>
+                    <Font name="Poppins Bold" size="12.0" />
+                </font></Label>
+            <TextField fx:id="priceField" promptText="e.g., 50.00" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                <font>
+                    <Font name="Poppins Regular" size="12.0" />
+                </font></TextField>
+
+            <!-- Collaborators -->
+            <Label text="Collaborators:" GridPane.columnIndex="0" GridPane.rowIndex="10">
+                <font>
+                    <Font name="Poppins Bold" size="12.0" />
+                </font></Label>
+            <ListView prefHeight="26.0" prefWidth="474.0" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+            <rowConstraints>
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+                <RowConstraints />
+            </rowConstraints>
+        </GridPane>
+
+        <!-- Submit Button -->
+        <Button fx:id="submitBtn" layoutX="512.0" layoutY="550.0" prefWidth="100.0" style="-fx-background-color: #fca311; -fx-text-fill: white;" text="Cancel">
+            <font>
+                <Font name="Poppins Bold" size="12.0" />
+            </font></Button>
+        <Button fx:id="submitBtn1" layoutX="620.0" layoutY="550.0" prefWidth="100.0" style="-fx-background-color: #fca311; -fx-text-fill: white;" text="Submit">
+            <font>
+                <Font name="Poppins Bold" size="12.0" />
+            </font>
+        </Button>
+    </children>
+</AnchorPane>

@@ -60,6 +60,12 @@
 
 .txt{
     -fx-text-fill: #FCA311;
+    -fx-font-weight: bold;
+
+}
+
+.txt2{
+    -fx-text-fill: #14213d;
 }
 
 .profil:hover {
