@@ -81,6 +81,10 @@ public class LoginController {
         }
     }
 
+    public void toRegister(){
+        SceneManager.switchScene("/org/example/eventmanagement/View/Auth/register-view.fxml");
+
+    }
 /*    private void loadDashboard(String fxml) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/org/example/eventmanagement/View" + fxml));
