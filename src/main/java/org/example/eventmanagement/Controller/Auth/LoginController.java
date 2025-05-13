@@ -65,7 +65,7 @@ public class LoginController {
                 case "organizer" -> {
                     Organizer organizer = OrganizerDAO.getByIdPerson(person.getIdPerson());
                     Session.getInstance().setLoggedInOrganizer(organizer);
-                    SceneManager.switchScene("/org/example/eventmanagement/View/event/EventForm.fxml");
+                    SceneManager.switchScene("/org/example/eventmanagement/View/organizer/organizer_layout.fxml");
                 }
                 case "user" -> {
                     User user = UserDAO.getByIdPerson(person.getIdPerson());

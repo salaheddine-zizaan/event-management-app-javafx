@@ -41,7 +41,7 @@
                                 </HBox>
                                 <HBox id="profile_btn" alignment="CENTER_RIGHT" layoutX="653.0" layoutY="22.0" prefHeight="35.0" prefWidth="88.0" styleClass="profileBTN" stylesheets="@../css/stylesheet.css">
                                     <children>
-                                        <Label prefHeight="18.0" prefWidth="97.0" style="-fx-text-fill: white;" stylesheets="@../css/stylesheet.css" text="My Profle" textFill="WHITE">
+                                        <Label onMouseClicked="#toProfile" prefHeight="18.0" prefWidth="97.0" style="-fx-text-fill: white;" stylesheets="@../css/stylesheet.css" text="My Profle" textFill="WHITE">
                                             <font>
                                                 <Font name="Poppins Bold" size="12.0" />
                                             </font>
@@ -116,7 +116,7 @@
                         </HBox>
                         <HBox id="dashboard_btn" alignment="CENTER" prefHeight="47.0" prefWidth="250.0" styleClass="hboxBTN" stylesheets="@../css/stylesheet.css">
                             <children>
-                                <Label stylesheets="@../css/stylesheet.css" text="Dashboard">
+                                <Label onKeyReleased="#toDashboard" onMouseClicked="#toDashboard" stylesheets="@../css/stylesheet.css" text="Dashboard">
                                     <font>
                                         <Font name="Poppins Bold" size="12.0" />
                                     </font>
@@ -126,9 +126,9 @@
                                 <Insets />
                             </VBox.margin>
                         </HBox>
-                        <HBox id="collaborator_btn" alignment="CENTER" prefHeight="47.0" prefWidth="250.0" styleClass="hboxBTN" stylesheets="@../css/stylesheet.css">
+                        <HBox id="collaborator_btn" alignment="CENTER" onKeyReleased="#toCollaborator" prefHeight="47.0" prefWidth="250.0" styleClass="hboxBTN" stylesheets="@../css/stylesheet.css">
                             <children>
-                                <Label stylesheets="@../css/stylesheet.css" text="Collaborators">
+                                <Label onMouseClicked="#toCollaborator" stylesheets="@../css/stylesheet.css" text="Collaborators">
                                     <font>
                                         <Font name="Poppins Bold" size="12.0" />
                                     </font>
@@ -137,7 +137,7 @@
                         </HBox>
                         <HBox id="events_btn" alignment="CENTER" prefHeight="47.0" prefWidth="250.0" styleClass="hboxBTN" stylesheets="@../css/stylesheet.css">
                             <children>
-                                <Label stylesheets="@../css/stylesheet.css" text="Events">
+                                <Label onMouseClicked="#toEvents" stylesheets="@../css/stylesheet.css" text="Events">
                                     <font>
                                         <Font name="Poppins Bold" size="12.0" />
                                     </font>
