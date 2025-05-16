@@ -21,23 +21,28 @@ public class EventsController {
     private ListView<Event> eventListView;
     private ObservableList<Event> eventList = FXCollections.observableArrayList();
     private EventDAO eventDAO = new EventDAO();
+    @FXML
+    private TextField cityField;
+    @FXML
+    private TextField countryField;
+    @FXML
+    private TextField locationField;
+    @FXML
+    private DatePicker datePicker;
+    @FXML
+    private TextField startTimeField;
+    @FXML
+    private TextField endTimeField;
+    @FXML
+    private TextField capacityField;
+    @FXML
+    private TextField priceField;
+
 
     @FXML
     public void initialize() {
-        loadEvents();
-        eventListView.setCellFactory(lv -> new ListCell<>() {
-            @Override
-            protected void updateItem(Event event, boolean empty) {
-                super.updateItem(event, empty);
-                if (empty || event == null) {
-                    setText(null);
-                } else {
-                    setText("📍 " + event.getLocation() + ", " + event.getCity() + ", " + event.getCountry()
-                            + "\n📅 " + event.getDate() + " 🕒 " + event.getStartTime() + " - " + event.getEndTime()
-                            + "\n💰 " + event.getPrice() + " € | 👥 " + event.getCapacity() + " places");
-                }
-            }
-        });
+
+
     }
 
     private void loadEvents() {
@@ -48,18 +53,41 @@ public class EventsController {
 
     @FXML
     private void handleCreateEvent() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/eventmanagement/View/Event/EventForm.fxml"));
-            Parent root = loader.load();
-            Stage stage = new Stage();
-            stage.setTitle("Créer un événement");
-            stage.setScene(new Scene(root));
-            stage.showAndWait();
-            loadEvents();
-        } catch (IOException e) {
-            showAlert("Erreur", "Impossible d'ouvrir la fenêtre de création d'événement.");
-        }
+        // Extract form field values
+        String city = cityField.getText();
+        String country = countryField.getText();
+        String location = locationField.getText();
+        LocalDate date = datePicker.getValue();
+        String startTime = startTimeField.getText();
+        String endTime = endTimeField.getText();
+        int capacity = Integer.parseInt(capacityField.getText());  // Assuming user enters a valid integer
+        double price = Double.parseDouble(priceField.getText());  // Assuming user enters a valid double
+
+        // Create a new Event object and set the extracted data
+        Event event = new Event();
+        event.setCity(city);
+        event.setCountry(country);
+        event.setLocation(location);
+        event.setDate(date);
+        event.setStartTime(LocalTime.parse(startTime));
+        event.setEndTime(LocalTime.parse(endTime));
+        event.setCapacity(capacity);
+        event.setPrice(price);
+
+        // Insert the event into the database
+        EventDAO.insertEvent(event);
+
+        // Optionally, you could reset the form fields after creating the event
+        cityField.clear();
+        countryField.clear();
+        locationField.clear();
+        datePicker.setValue(null);
+        startTimeField.clear();
+        endTimeField.clear();
+        capacityField.clear();
+        priceField.clear();
     }
+
 
     @FXML
     private void handleUpdateEvent() {

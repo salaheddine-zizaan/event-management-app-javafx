@@ -16,7 +16,7 @@
          <content>
             <AnchorPane prefHeight="594.0" prefWidth="802.0" style="-fx-background-color: white;">
                <children>
-                  <Button layoutX="665.0" layoutY="32.0" mnemonicParsing="false" onMouseClicked="#AddEventLink" prefHeight="26.0" prefWidth="109.0" style="-fx-background-color: #fca311; -fx-cursor: hand;" text="add an event" textFill="WHITE">
+                  <Button layoutX="665.0" layoutY="32.0" mnemonicParsing="false" onAction="#AddEventLink" prefHeight="26.0" prefWidth="109.0" style="-fx-background-color: #fca311; -fx-cursor: hand;" text="add an event" textFill="WHITE">
                      <font>
                         <Font name="Poppins Bold" size="12.0" />
                      </font></Button>
@@ -30,14 +30,25 @@
                      </font></Label>
                   <ScrollPane layoutX="22.0" layoutY="108.0" prefHeight="126.0" prefWidth="752.0" style="-fx-border-color: none; -fx-background-color: white;">
                      <content>
-                        <AnchorPane prefHeight="154.0" prefWidth="736.0" style="-fx-background-color: white;">
+                        <VBox fx:id="eventsContainer" prefHeight="126.0" prefWidth="752.0" spacing="10.0">
+                           <!-- Event rows will be added dynamically here -->
+                        </VBox>
+                     </content>
+                  </ScrollPane>
+                  <Label layoutX="22.0" layoutY="248.0" opacity="0.72" styleClass="txt2" stylesheets="@../css/stylesheet.css" text="events waiting for validaton">
+                     <font>
+                        <Font name="Poppins Regular" size="12.0" />
+                     </font>
+                  </Label>
+                  <ScrollPane layoutX="22.0" layoutY="269.0" prefHeight="126.0" prefWidth="752.0" style="-fx-border-color: none; -fx-background-color: WHITE;">
+                     <content>
+                        <AnchorPane prefHeight="154.0" prefWidth="736.0" style="-fx-background-color: WHITE;">
                            <children>
-
-                              <HBox id="event_row" alignment="CENTER_LEFT" layoutX="3.0" layoutY="61.0" prefHeight="54.0" prefWidth="729.0" style="-fx-background-color: E5E5E5; -fx-background-radius: 15;">
+                              <HBox id="event_row" alignment="CENTER_LEFT" layoutX="3.0" layoutY="3.0" prefHeight="54.0" prefWidth="729.0" style="-fx-background-color: E5E5E5; -fx-background-radius: 15;">
                                  <children>
                                     <VBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="265.0">
                                        <children>
-                                          <Label prefHeight="26.0" prefWidth="175.0" styleClass="deco" stylesheets="@../css/stylesheet.css" text="event name 2" textFill="#14213d">
+                                          <Label prefHeight="26.0" prefWidth="175.0" styleClass="deco" stylesheets="@../css/stylesheet.css" text="event name">
                                              <font>
                                                 <Font name="Poppins Regular" size="14.0" />
                                              </font>
@@ -54,12 +65,12 @@
                                     </VBox>
                                     <VBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="87.0">
                                        <children>
-                                          <Label text="13/02/2025" textFill="#14213d" />
+                                          <Label text="10/12/2025" textFill="#14213d" />
                                        </children>
                                     </VBox>
                                     <VBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="92.0">
                                        <children>
-                                          <Label style="-fx-background-color: white; -fx-background-radius: 10; -fx-cursor: hand;" text="accepted" textFill="#79cc6b">
+                                          <Label style="-fx-background-color: white; -fx-background-radius: 10; -fx-cursor: hand;" text="coming ..." textFill="#fa8111">
                                              <padding>
                                                 <Insets bottom="4.0" left="10.0" right="10.0" top="4.0" />
                                              </padding>
@@ -87,11 +98,11 @@
                                     </HBox>
                                  </children>
                               </HBox>
-                              <HBox id="event_row" alignment="CENTER_LEFT" layoutX="3.0" layoutY="119.0" prefHeight="54.0" prefWidth="729.0" style="-fx-background-color: E5E5E5; -fx-background-radius: 15;">
+                              <HBox id="event_row" alignment="CENTER_LEFT" layoutX="3.0" layoutY="61.0" prefHeight="54.0" prefWidth="729.0" style="-fx-background-color: E5E5E5; -fx-background-radius: 15;">
                                  <children>
                                     <VBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="265.0">
                                        <children>
-                                          <Label prefHeight="26.0" prefWidth="175.0" styleClass="deco" stylesheets="@../css/stylesheet.css" text="event name 3" textFill="#14213d">
+                                          <Label prefHeight="26.0" prefWidth="175.0" styleClass="deco" stylesheets="@../css/stylesheet.css" text="event name 2">
                                              <font>
                                                 <Font name="Poppins Regular" size="14.0" />
                                              </font>
@@ -103,7 +114,7 @@
                                     </VBox>
                                     <VBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="83.0">
                                        <children>
-                                          <Label text="Kénitra" textFill="#14213d" />
+                                          <Label text="agadir" textFill="#14213d" />
                                        </children>
                                     </VBox>
                                     <VBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="87.0">
@@ -113,7 +124,11 @@
                                     </VBox>
                                     <VBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="92.0">
                                        <children>
-                                          <Label text="accepted" textFill="#14213d" />
+                                          <Label style="-fx-background-color: white; -fx-background-radius: 10; -fx-cursor: hand;" text="coming ..." textFill="#fa8111">
+                                             <padding>
+                                                <Insets bottom="4.0" left="10.0" right="10.0" top="4.0" />
+                                             </padding>
+                                          </Label>
                                        </children>
                                     </VBox>
                                     <HBox alignment="CENTER" prefHeight="54.0" prefWidth="176.0" spacing="7.0">
@@ -137,20 +152,60 @@
                                     </HBox>
                                  </children>
                               </HBox>
-                           </children>
-                        </AnchorPane>
-                     </content>
-                  </ScrollPane>
-                  <Label layoutX="22.0" layoutY="248.0" opacity="0.72" styleClass="txt2" stylesheets="@../css/stylesheet.css" text="events waiting for validaton">
-                     <font>
-                        <Font name="Poppins Regular" size="12.0" />
-                     </font>
-                  </Label>
-                  <ScrollPane layoutX="22.0" layoutY="269.0" prefHeight="126.0" prefWidth="752.0" style="-fx-border-color: none; -fx-background-color: WHITE;">
-                     <content >
-                        <AnchorPane fx:id="eventsContainer" prefHeight="154.0" prefWidth="736.0" style="-fx-background-color: WHITE;">
-                           <children>
-
+                              <HBox id="event_row" alignment="CENTER_LEFT" layoutX="3.0" layoutY="119.0" prefHeight="55.0" prefWidth="730.0" style="-fx-background-color: E5E5E5; -fx-background-radius: 15;">
+                                 <children>
+                                    <VBox alignment="CENTER_LEFT" prefHeight="38.0" prefWidth="266.0">
+                                       <children>
+                                          <Label prefHeight="26.0" prefWidth="175.0" styleClass="deco" stylesheets="@../css/stylesheet.css" text="event name 3">
+                                             <font>
+                                                <Font name="Poppins Regular" size="14.0" />
+                                             </font>
+                                             <VBox.margin>
+                                                <Insets left="12.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER_LEFT" prefHeight="48.0" prefWidth="83.0">
+                                       <children>
+                                          <Label text="tiznit" textFill="#14213d" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="87.0">
+                                       <children>
+                                          <Label text="15/02/2025" textFill="#14213d" />
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER_LEFT" prefHeight="54.0" prefWidth="92.0">
+                                       <children>
+                                          <Label style="-fx-background-color: white; -fx-background-radius: 10; -fx-cursor: hand;" text="coming ..." textFill="#fa8111">
+                                             <padding>
+                                                <Insets bottom="4.0" left="10.0" right="10.0" top="4.0" />
+                                             </padding>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <HBox alignment="CENTER" prefHeight="54.0" prefWidth="176.0" spacing="7.0">
+                                       <children>
+                                          <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="64.0" style="-fx-background-color: white; -fx-cursor: hand;" text="Details" textFill="#fca311">
+                                             <font>
+                                                <Font name="Poppins Regular" size="11.0" />
+                                             </font>
+                                          </Button>
+                                          <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="50.0" style="-fx-background-color: white; -fx-cursor: hand;" text="Edit" textFill="#fca311">
+                                             <font>
+                                                <Font name="Poppins Regular" size="11.0" />
+                                             </font>
+                                          </Button>
+                                          <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" style="-fx-background-color: white; -fx-cursor: hand;" text="Delete" textFill="#fca311">
+                                             <font>
+                                                <Font name="Poppins Regular" size="11.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
                            </children>
                         </AnchorPane>
                      </content>

@@ -17,7 +17,7 @@ public class NextEventRowController {
         @FXML private Button deleteButton;
 
         public void setEventData(Event event) {
-            eventNameLabel.setText(event.getLocation());
+            eventNameLabel.setText(event.getTitle());
             cityLabel.setText(event.getCity());
             dateLabel.setText(event.getDate().toString());
             statusLabel.setText("accepted"); // Or dynamically from DB

@@ -95,7 +95,7 @@ public class EventDAO {
     }
 
     // Insert event
-    public boolean insertEvent(Event event) {
+    public static boolean insertEvent(Event event) {
         String query = "INSERT INTO event (title, description, location, city, country, price, capacity, date, start_time, end_time, id_organizer) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
@@ -166,7 +166,7 @@ public class EventDAO {
     }
 
     // Set Event parameters in PreparedStatement
-    private void setEventParams(PreparedStatement ps, Event event) throws SQLException {
+    private static void setEventParams(PreparedStatement ps, Event event) throws SQLException {
         ps.setString(1, event.getTitle());
         ps.setString(2, event.getDescription());
         ps.setString(3, event.getLocation());
