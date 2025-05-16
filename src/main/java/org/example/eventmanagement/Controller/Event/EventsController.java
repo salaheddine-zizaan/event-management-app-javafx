@@ -10,6 +10,7 @@ import javafx.scene.control.*;
 import javafx.stage.Stage;
 import org.example.eventmanagement.DAO.EventDAO;
 import org.example.eventmanagement.Model.Event;
+import org.example.eventmanagement.utils.Session;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -21,6 +22,10 @@ public class EventsController {
     private ListView<Event> eventListView;
     private ObservableList<Event> eventList = FXCollections.observableArrayList();
     private EventDAO eventDAO = new EventDAO();
+    @FXML
+    private TextField eventTitleField;
+    @FXML
+    private TextArea descriptionField;
     @FXML
     private TextField cityField;
     @FXML
@@ -54,18 +59,22 @@ public class EventsController {
     @FXML
     private void handleCreateEvent() {
         // Extract form field values
+        String title = eventTitleField.getText();
+        String description = descriptionField.getText();
         String city = cityField.getText();
         String country = countryField.getText();
         String location = locationField.getText();
         LocalDate date = datePicker.getValue();
         String startTime = startTimeField.getText();
         String endTime = endTimeField.getText();
+        int id_organizer = Session.getInstance().getLoggedInOrganizer().getIdOrganizer();
         int capacity = Integer.parseInt(capacityField.getText());  // Assuming user enters a valid integer
         double price = Double.parseDouble(priceField.getText());  // Assuming user enters a valid double
 
         // Create a new Event object and set the extracted data
         Event event = new Event();
-        event.setCity(city);
+        event.setTitle(title);
+        event.setDescription(description);
         event.setCountry(country);
         event.setLocation(location);
         event.setDate(date);
@@ -73,6 +82,7 @@ public class EventsController {
         event.setEndTime(LocalTime.parse(endTime));
         event.setCapacity(capacity);
         event.setPrice(price);
+        event.setOrganizerId(id_organizer);
 
         // Insert the event into the database
         EventDAO.insertEvent(event);
@@ -86,6 +96,8 @@ public class EventsController {
         endTimeField.clear();
         capacityField.clear();
         priceField.clear();
+        eventTitleField.clear();
+        descriptionField.clear();
     }
 
 

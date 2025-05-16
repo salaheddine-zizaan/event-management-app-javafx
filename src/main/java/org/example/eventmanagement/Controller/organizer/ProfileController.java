@@ -37,7 +37,10 @@ public class ProfileController {
     // Fetch user profile from the database and populate the fields
     private void loadUserProfile() {
         try (Connection conn = DatabaseConnection.getConnection()) {
-            String query = "SELECT firstname, lastname, email, phone, username, role FROM person WHERE id_person = ?";
+            String query = "SELECT p.firstname, p.lastname, p.email, p.phone, p.username, p.role, o.name, o.field\n" +
+                    "            FROM person p\n" +
+                    "            JOIN organizer o ON o.id_person = o.id_person\n" +
+                    "            WHERE p.id_person = ?;";
             PreparedStatement ps = conn.prepareStatement(query);
             ps.setInt(1, userId); // Use actual user ID
             ResultSet rs = ps.executeQuery();
@@ -49,6 +52,7 @@ public class ProfileController {
                 phoneField.setText(rs.getString("phone"));
                 usernameField.setText(rs.getString("username"));
                 roleField.setText(rs.getString("role"));
+                companyNameField.setText(rs.getString("name"));
             }
         } catch (SQLException e) {
             e.printStackTrace();

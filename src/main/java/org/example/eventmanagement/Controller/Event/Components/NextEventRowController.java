@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import org.example.eventmanagement.Model.Event;
+import org.example.eventmanagement.utils.SceneManager;
 
 public class NextEventRowController {
 
@@ -20,11 +21,13 @@ public class NextEventRowController {
             eventNameLabel.setText(event.getTitle());
             cityLabel.setText(event.getCity());
             dateLabel.setText(event.getDate().toString());
-            statusLabel.setText("accepted"); // Or dynamically from DB
+            statusLabel.setText(event.isApproved() ? "Approved" : "Not Approved"); // Or dynamically from DB
 
             // Set up action handlers
             detailsButton.setOnAction(e -> System.out.println("Show details of: " + event.getId()));
-            editButton.setOnAction(e -> System.out.println("Edit event: " + event.getId()));
+            editButton.setOnAction(
+                    e -> SceneManager.switchScene("/org/example/eventmanagement/View/organizer/event_details.fxml")
+            );
             deleteButton.setOnAction(e -> System.out.println("Delete event: " + event.getId()));
         }
 

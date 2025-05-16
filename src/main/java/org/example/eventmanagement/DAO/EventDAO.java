@@ -29,27 +29,6 @@ public class EventDAO {
         return events;
     }
 
-    // Get events by organizer
-    public static List<Event> getEventsByOrganizer(int organizerId) {
-        List<Event> events = new ArrayList<>();
-        String query = "SELECT * FROM event WHERE id_organizer = ?";
-
-        try (Connection conn = DatabaseConnection.getConnection();
-             PreparedStatement ps = conn.prepareStatement(query)) {
-
-            ps.setInt(1, organizerId);
-            ResultSet rs = ps.executeQuery();
-
-            while (rs.next()) {
-                events.add(extractEventFromResultSet(rs));
-            }
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return events;
-    }
 
     // Get event by ID
     public Event getEventById(int id) {
@@ -73,25 +52,26 @@ public class EventDAO {
     }
 
     // ✅ Get event by ID and Organizer ID
-    public Event getEventByIdOrganizer(int eventId, int organizerId) {
-        String query = "SELECT * FROM event WHERE id_event = ? AND id_organizer = ?";
+    public static List<Event> getEventsByOrganizer(int organizerId) {
+        List<Event> events = new ArrayList<>();
+
+        String query = "SELECT * FROM event WHERE id_organizer = ?";
 
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement ps = conn.prepareStatement(query)) {
 
-            ps.setInt(1, eventId);
-            ps.setInt(2, organizerId);
+            ps.setInt(1, organizerId);
             ResultSet rs = ps.executeQuery();
 
-            if (rs.next()) {
-                return extractEventFromResultSet(rs);
+            while (rs.next()) {
+                events.add(extractEventFromResultSet(rs));
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        return null;
+        return events;
     }
 
     // Insert event
@@ -162,6 +142,7 @@ public class EventDAO {
         event.setStartTime(rs.getTime("start_time").toLocalTime());
         event.setEndTime(rs.getTime("end_time").toLocalTime());
         event.setOrganizerId(rs.getInt("id_organizer"));
+        event.setApproved(rs.getBoolean("approved"));
         return event;
     }
 

@@ -15,12 +15,17 @@ import org.example.eventmanagement.utils.SceneManager;
 import org.example.eventmanagement.utils.Session;
 
 import java.io.IOException;
+import java.util.Collections;
 import java.util.List;
 
 public class ShowEventsList {
 
     @FXML
-    private VBox eventsContainer;  // This is now a VBox instead of AnchorPane
+    private VBox approvedEventsContainer;  // This is now a VBox instead of AnchorPane
+    @FXML
+    private VBox waitingEventsContainer;  // This is now a VBox instead of AnchorPane
+    @FXML
+    private VBox declinedEventsContainer;  // This is now a VBox instead of AnchorPane
 
     public void initialize() throws IOException {
         Organizer organizer = Session.getInstance().getLoggedInOrganizer(); // Get currently logged-in organizer
@@ -30,19 +35,37 @@ public class ShowEventsList {
             List<Event> myEvents = EventDAO.getEventsByOrganizer(organizer.getIdOrganizer());
             // Loop through each event and create an event row
             for (Event event : myEvents) {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/eventmanagement/View/Organizer/eventsList/nextEventsRow.fxml"));
+                if (event.isApproved()){
+                    System.out.println("Event: " + event.isApproved());
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/eventmanagement/View/Organizer/eventsList/nextEventsRow.fxml"));
 
-                // Load the FXML for each event row
-                Parent eventRow = loader.load();
+                    // Load the FXML for each event row
+                    Parent eventRow = loader.load();
 
-                // Get the controller for the event row
-                NextEventRowController controller = loader.getController();
+                    // Get the controller for the event row
+                    NextEventRowController controller = loader.getController();
 
-                // Pass the event data to the controller
-                controller.setEventData(event);
+                    // Pass the event data to the controller
+                    controller.setEventData(event);
 
-                // Add the event row to the VBox container
-                eventsContainer.getChildren().add(eventRow);
+                    // Add the event row to the VBox container
+                    approvedEventsContainer.getChildren().add(eventRow);
+                } else if (!event.isApproved()) {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/org/example/eventmanagement/View/Organizer/eventsList/nextEventsRow.fxml"));
+
+                    // Load the FXML for each event row
+                    Parent eventRow = loader.load();
+
+                    // Get the controller for the event row
+                    NextEventRowController controller = loader.getController();
+
+                    // Pass the event data to the controller
+                    controller.setEventData(event);
+
+                    // Add the event row to the VBox container
+                    waitingEventsContainer.getChildren().add(eventRow);
+                }
+
             }
         } else {
             System.out.println("No organizer logged in.");

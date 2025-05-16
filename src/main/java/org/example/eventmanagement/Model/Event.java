@@ -71,7 +71,7 @@ public class Event {
     }
 
     public boolean isApproved() {
-        return approved;
+         return approved;
     }
 
     public void setApproved(boolean approved) {
@@ -165,4 +165,5 @@ public class Event {
     public void setDescription(String description) {
         this.description = description;
     }
+
 }

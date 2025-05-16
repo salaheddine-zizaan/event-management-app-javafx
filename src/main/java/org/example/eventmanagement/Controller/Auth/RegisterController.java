@@ -22,7 +22,7 @@ public class RegisterController {
     @FXML private PasswordField companynamefield;
     @FXML private PasswordField companyfieldfield;
     @FXML private Label statusLabel;
-    @FXML private Text register_success;
+    @FXML private Label register_success;
     @FXML private Pane register_success_pane;
     @FXML private Text register_failed;
     @FXML private Pane register_failed_pane;

@@ -54,7 +54,7 @@
 
             <Button fx:id="registerButton" layoutX="32.0" layoutY="385.0" onAction="#handleRegister" prefHeight="30.0" prefWidth="380.0" styleClass="submit-button" text="Register" />
 
-            <Label fx:id="statusLabel" layoutX="206.0" layoutY="361.0" text="Label" textFill="WHITE" />
+            <Label fx:id="statusLabel" layoutX="206.0" layoutY="361.0" text="Label" textFill="WHITE" visible="false" />
             <RadioButton fx:id="radioorganizer" layoutX="243.0" layoutY="266.0" mnemonicParsing="false" onAction="#handleRadioButtonAction" text="organizer">
                <toggleGroup>
                   <ToggleGroup fx:id="role" />

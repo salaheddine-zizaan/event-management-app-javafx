@@ -60,7 +60,7 @@ public class LoginController {
                 case "admin" -> {
                     Admin admin = AdminDAO.getByIdPerson(person.getIdPerson());
                     Session.getInstance().setLoggedInAdmin(admin);
-                    SceneManager.switchScene("/org/example/eventmanagement/View/admin/admin-profile-view.fxml");
+                    SceneManager.switchScene("/org/example/eventmanagement/View/admin/admin_profile.fxml");
                 }
                 case "organizer" -> {
                     Organizer organizer = OrganizerDAO.getByIdPerson(person.getIdPerson());
