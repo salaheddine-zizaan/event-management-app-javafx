@@ -22,16 +22,21 @@ public class AdminController {
     }
 
     // Navigation methods to switch views within the admin layout
+
     @FXML
-    private void showDashboard() {
-        SceneManager.switchView("/org/example/eventmanagement/View/admin/test.fxml");
+    private void toDashboard(MouseEvent event) {
+        SceneManager.switchView("/org/example/eventmanagement/View/admin/admin-dashboard-view.fxml");
     }
 
     @FXML
-    private void showUsers() {
-        SceneManager.switchView("/org/example/eventmanagement/View/admin/test.fxml");
+    private void toOrganizer(MouseEvent event) {
+        SceneManager.switchView("/org/example/eventmanagement/View/admin/admin_organizers.fxml");
     }
 
+    @FXML
+    private void toEvents(MouseEvent event) {
+        SceneManager.switchView("/org/example/eventmanagement/View/admin/event_liste.fxml");
+    }
     public void to_profile(MouseEvent mouseEvent) {
         SceneManager.switchView("/org/example/eventmanagement/View/admin/admin_profile.fxml");
     }
